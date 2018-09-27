@@ -1,0 +1,14 @@
+#logo {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+#lead {
+    text-align: center;
+    width: 100%;
+}
+#form {
+    line-height: 2;
+}
+
+/* hide containers platform card when shrunk to phone size */
