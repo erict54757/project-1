@@ -33,12 +33,13 @@
         width: 50%;
     }
     #card-div {
-        width:  50%;
+        width:  100%;
         height: auto;
     }
     
     #contain-1{
         width: 65%;
+        display: none;
     }
     #platform-card {
         padding: 1%;
@@ -46,10 +47,46 @@
     #label {
         width: 100%;
     }
+   #mobile-carosel {
+       width: 65%;
+   }
+   #logo {
+       height: 75%;
+       margin-top: 20%;
+   }
+   #platform-card {
+       padding-left: 5%;
+       padding-right: 5%;
+   }
+   @media screen and (max-width:770px) {
+
+#addButton {
+    width: 40%;
+  
+}
+#search {
+    width: 30%;
+    margin-left: 5%;
+
+   }
+   #logo {
+       display: none;
+   }
+   #div-logo {
+       display: none;
+   }
+  #lead {
+      display: none;
+  }
+  #header-ipad {
+    
+      margin-left: 6%;
+ }
+ 
+
+   }
    
 
 
-}
-
-
-/* hide containers platform card when shrunk to phone size */
+/*     
+   } hide containers platform card when shrunk to phone size */
