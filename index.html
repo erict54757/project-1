@@ -5,11 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
     <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    <script src="assets/js/logic.js"></script>
+    
     <title>ONE FEED</title>
 </head>
 <style>
@@ -22,6 +25,9 @@
     }
     h2 {
         font-size: 45px;
+    }
+    #sign-in{
+        float: right;
     }
 </style>
 
@@ -45,12 +51,12 @@
 
     <div class="user-container my-4">
         <div class="row">
-            <div class="col-3"></div>
-            <div class="col-6 border border-danger"id = firebaseui-auth-container>
-                    
-                
+            <div class="col-4"></div>
+            <div class="col-4">
+                <button type="button" class="btn btn-outline-danger btn-large px-5" id="sign-up">Sign Up</button>     
+                <button type="button" class="btn btn-outline-danger btn-large px-5" id="sign-in">Sign In</button>
             </div>
-            <div class="col-3"></div>
+            <div class="col-4"></div>
         </div>
     </div>
 
