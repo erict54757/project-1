@@ -5,17 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ONE FEED</title>
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
     <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
+    <title>ONE FEED</title>
 </head>
 <style>
+   
+    /* background: url("https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2017%2F10%2Fwebsites.jpg&w=1000&q=70");  */
+  
+    .about {
+        font-size: 27px;
+        font-family: 'Oswald', sans-serif;
+    }
+    h2 {
+        font-size: 45px;
+    }
 </style>
 
-<body>
+<body class="bg-dark">
 
+    <div class="jumbotron jumbotron-fluid bg-dark">
 
+    </div>
 
+<<<<<<< HEAD
     <div class="jumbotron jumbotron-fluid mb-0 pt-2 pb-1 px-0 shadow-lg bg-light">
         <div class="container-fluid ">
             <div class="row pl-4 pr-0">
@@ -40,122 +56,67 @@
                     
             </div>
             
+=======
 
-   
-           
-           
-           
-           
-           
-           
-           <div class="container-fluid">
-        <div class="row">
-            <div class="card col-2" id="platform-card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum vitae placeat, fugit
-                        incidunt quisquam similique vero nisi reiciendis nesciunt nemo eos dolorem doloremque recusandae
-                        autem iusto iste atque est aut voluptate eum officia iure delectus quibusdam aliquid. Sint consectetur
-                        aliquam saepe pariatur in tenetur? Tempora aliquam enim sunt eligendi aperiam quidem, sit ad veritatis
-                        eius similique tenetur repudiandae at cum hic, ullam minima placeat excepturi dolor vel corporis
-                        dolorem. Officiis consequatur, dolores odit optio suscipit odio laborum eos quod illum. Some quick
-                        example text to build on the card title and make up the bulk of the card's content.
-                    </p>
-                </div>
-            </div>
-
-            <div class="container">
-
-
-                <div class="row row-1">
-
-                    <div class="col-6">
-                        <div class="card" id="card-1">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="card" id="card-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="row row-2">
-
-                    <div class="col-6">
-                        <div class="card" id="card-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="card" id="card-4">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row row-3">
-
-                    <div class="col-6">
-                        <div class="card" id="card-5">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="card" id="card-6">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <div class="p-3 text-center text-white">
+            <p class= "about">
+                Tired of spending hours searching for the news you want in different platforms? Say no more! This web application gives you
+                the ability to pull the news you want and need from multiple platforms all in one dashboard.
+            </p>
+            <h2>Sign up for your free trial now!</h2>
         </div>
     </div>
-    
-    
-              
-               
-   
+<br>
+>>>>>>> ff34e7f66b5ed472603702f616e32736f8791fff
+
+    <div class="user-container my-4">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 border border-danger"id = firebaseui-auth-container>
+                    
+                
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
 
 
-    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>   
-    <script src="assets/js/logic.js"></script>
 
+<<<<<<< HEAD
+=======
+
+    <script type="text/javascript">
+        // FirebaseUI config.
+        var uiConfig = {
+          signInSuccessUrl: 'https://erict54757.github.io/One-feed/dashboard.html',
+          signInOptions: [
+            // Leave the lines as is for the providers you want to offer your users.
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+            // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+            firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            // firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+            // firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+          ],
+          // tosUrl and privacyPolicyUrl accept either url string or a callback
+          // function.
+          // Terms of service url/callback.
+          tosUrl: '<your-tos-url>',
+          // Privacy policy url/callback.
+          privacyPolicyUrl: function() {
+            window.location.assign('<your-privacy-policy-url>');
+          }
+        };
+  
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+      </script>
+
+>>>>>>> ff34e7f66b5ed472603702f616e32736f8791fff
 </body>
 
 </html>

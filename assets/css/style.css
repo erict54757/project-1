@@ -1,14 +1,121 @@
+
+
 #logo {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     border-radius: 5px;
 }
-#lead {
-    text-align: center;
-    width: 100%;
+
+
+#button-check{
+    display: flex;
+    justify-content: center;
+   
+
 }
+#label {
+    
+    width: 75%;
+}
+#contain-1 {
+    width: 65%;
+} 
 #form {
-    line-height: 2;
+    margin-top: 10%;
+    
+   
+  float: right;
+}
+.title {
+    float: left;
 }
 
-/* hide containers platform card when shrunk to phone size */
+
+@media screen and (max-width:770px) {
+
+    #label{
+        width: 50%;
+    }
+    .title {
+        float: right;
+    }
+    
+ #form {
+    float: right;
+   margin: 0%;
+   margin-bottom: 5%;
+}
+#lead {
+    margin: 0%;
+}
+    
+    
+    
+    #contain-1{
+        width: 65%;
+        display: none;
+    }
+    #platform-card {
+        padding: 1%;
+    }
+    #label {
+        width: 100%;
+    }
+   #mobile-carosel {
+       width: 65%;
+   }
+   #logo {
+   width: 25%;
+   height: 100%;
+   }
+   #platform-card {
+       padding-left: 5%;
+       padding-right: 5%;
+   }
+   
+
+#addButton {
+    width: 60%;
+  
+}
+#search {
+    width: 30%;
+    margin-left: 5%;
+
+   }
+   
+  
+  
+
+
+@media screen and (max-width: 640px){
+    #logo{
+        display: none;
+    }
+    #form {
+        
+   margin-left: 25%;
+   margin-right: 25%;
+  
+
+    }
+    .title{
+       width: 100%;
+    }
+    #search {
+        padding: 0%;
+        
+    }
+    #addButton {
+        padding: 0%;
+    }
+}
+     
+ }
+ 
+
+   
+
+
+/*     
+   } hide containers platform card when shrunk to phone size */
