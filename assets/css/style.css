@@ -1,14 +1,92 @@
 #logo {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 5px;
 }
+
 #lead {
-    text-align: center;
+    text-align: left;
     width: 100%;
 }
 #form {
-    line-height: 2;
+  position: relative;
+  margin-top: 4%;
+  margin-right: 1%;
 }
+#button-check{
+    display: flex;
+    justify-content: center;
+   
 
-/* hide containers platform card when shrunk to phone size */
+}
+#label {
+    
+    width: 75%;
+}
+#contain-1 {
+    width: 65%;
+} 
+
+
+@media screen and (max-width:770px) {
+    #label{
+        width: 50%;
+    }
+    #card-div {
+        width:  100%;
+        height: auto;
+    }
+    
+    #contain-1{
+        width: 65%;
+        display: none;
+    }
+    #platform-card {
+        padding: 1%;
+    }
+    #label {
+        width: 100%;
+    }
+   #mobile-carosel {
+       width: 65%;
+   }
+   #logo {
+       height: 75%;
+       margin-top: 20%;
+   }
+   #platform-card {
+       padding-left: 5%;
+       padding-right: 5%;
+   }
+   @media screen and (max-width:770px) {
+
+#addButton {
+    width: 40%;
+  
+}
+#search {
+    width: 30%;
+    margin-left: 5%;
+
+   }
+   #logo {
+       display: none;
+   }
+   #div-logo {
+       display: none;
+   }
+  #lead {
+      display: none;
+  }
+  #header-ipad {
+    
+      margin-left: 6%;
+ }
+ 
+
+   }
+   
+
+
+/*     
+   } hide containers platform card when shrunk to phone size */
