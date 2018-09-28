@@ -9,7 +9,47 @@
     width: 100%;
 }
 #form {
-    line-height: 2;
+  position: relative;
+  margin-top: 4%;
+  margin-right: 1%;
 }
+#button-check{
+    display: flex;
+    justify-content: center;
+   
+
+}
+#label {
+    
+    width: 75%;
+}
+#contain-1 {
+    width: 65%;
+} 
+
+
+@media screen and (max-width:770px) {
+    #label{
+        width: 50%;
+    }
+    #card-div {
+        width:  50%;
+        height: auto;
+    }
+    
+    #contain-1{
+        width: 65%;
+    }
+    #platform-card {
+        padding: 1%;
+    }
+    #label {
+        width: 100%;
+    }
+   
+
+
+}
+
 
 /* hide containers platform card when shrunk to phone size */
