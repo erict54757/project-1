@@ -5,18 +5,22 @@
     height: 100%;
     border-radius: 5px;
 }
+#label{
+    
+    width: 100%;
+}
 
 
-#button-check{
+/* #button-check{
     display: flex;
     justify-content: center;
    
 
-}
-#label {
+} */
+/* #label {
     
     width: 75%;
-}
+} */
 #contain-1 {
     width: 65%;
 } 
@@ -28,14 +32,15 @@
 }
 .title {
     float: left;
+  
 }
 
 
 @media screen and (max-width:770px) {
 
-    #label{
+    /* #label{
         width: 50%;
-    }
+    } */
     .title {
         float: right;
     }
@@ -58,9 +63,10 @@
     #platform-card {
         padding: 1%;
     }
-    #label {
+    /* #label {
         width: 100%;
-    }
+        padding: 0%;
+    } */
    #mobile-carosel {
        width: 65%;
    }
@@ -96,6 +102,7 @@
         
    margin-left: 25%;
    margin-right: 25%;
+   margin-bottom: 0%;
   
 
     }
@@ -109,6 +116,11 @@
     #addButton {
         padding: 0%;
     }
+    .btn-group-toggle, #label{
+        display: inline;
+    
+    }
+
 }
      
  }
