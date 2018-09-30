@@ -1,129 +1,99 @@
 
-
 #logo {
     width: auto;
     height: 100%;
-    border-radius: 5px;
-}
-#label{
+    border-radius: 10px;
+  position: absolute;
+  left: 0px;
+  
+   }
+
+   #label{
     
     width: 100%;
 }
-
-
-/* #button-check{
-    display: flex;
-    justify-content: center;
-   
+#carouselExampleFade{
+    
+    width: 100%;
+}
+.card-body {
+    width: 100%;
+}
+/* .btn-group-toggle {
+width: 16.6%;
 
 } */
-/* #label {
-    
-    width: 75%;
-} */
-#contain-1 {
-    width: 65%;
-} 
-#form {
-    margin-top: 10%;
-    
-   
-  float: right;
-}
-.title {
-    float: left;
-  
-}
 
+
+
+
+#mobile-carousel {
+    width: 85%;
+}
+footer {
+    line-height: .5;
+    height: 30px;
+    width: 100%;
+    background-color: #000000;
+    position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
 
 @media screen and (max-width:770px) {
-
-    /* #label{
-        width: 50%;
-    } */
-    .title {
-        float: right;
+    #mobile-carousel {
+        width: 100%;
+    }
+   .title {
+        
+        font-size: 10pt;
     }
     
  #form {
-    float: right;
-   margin: 0%;
-   margin-bottom: 5%;
+   
+     margin: 0%;
+     margin-bottom: 5%;
 }
 #lead {
+    font-size: 10pt;
     margin: 0%;
 }
+
     
-    
-    
-    #contain-1{
-        width: 65%;
-        display: none;
-    }
-    #platform-card {
-        padding: 1%;
-    }
-    /* #label {
-        width: 100%;
-        padding: 0%;
-    } */
-   #mobile-carosel {
-       width: 65%;
-   }
    #logo {
    width: 25%;
    height: 100%;
    }
-   #platform-card {
-       padding-left: 5%;
-       padding-right: 5%;
-   }
-   
-
-#addButton {
-    width: 60%;
-  
 }
-#search {
-    width: 30%;
-    margin-left: 5%;
-
-   }
    
-  
-  
-
-
 @media screen and (max-width: 640px){
     #logo{
         display: none;
     }
-    #form {
-        
-   margin-left: 25%;
-   margin-right: 25%;
-   margin-bottom: 0%;
-  
-
-    }
-    .title{
+   
+    #title, .title{
        width: 100%;
+       font-size: 22pt;
     }
-    #search {
-        padding: 0%;
-        
-    }
-    #addButton {
-        padding: 0%;
-    }
-    .btn-group-toggle, #label{
-        display: inline;
+    
+    #button-check, #label{
+       font-size: 6pt;
+    
+    
     
     }
-
+    #addButton {
+        width: 40%;
+        
+       
+       
+    }
+ 
 }
      
- }
+
  
 
    
