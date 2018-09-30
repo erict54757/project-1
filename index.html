@@ -12,34 +12,47 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
 
-
+    <script src="assets/js/logic.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
 
 
     <title>ONE FEED</title>
 </head>
 <style>
-    /* background: url("https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2017%2F10%2Fwebsites.jpg&w=1000&q=70");  */
 
-    .about {
-        font-size: 27px;
-        font-family: 'Oswald', sans-serif;
-    }
-
-    h2 {
-        font-size: 45px;
-    }
-
-
-    #sign-in {
-
-        float: right;
-    }
 </style>
 
-<body class="bg-dark">
+<body>
 
-    <div class="jumbotron jumbotron-fluid bg-dark">
+    <div class="jumbotron jumbotron-fluid mb-0 pt-1 pb-1 px-0 shadow-lg bg-dark text-light">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
 
+                    <img class="p-1" id="logo" src="assets/images/logo.jpg" alt="" srcset="">
+
+
+
+                    <span class=" title m-0 mb-5">
+                        <h1 class="display-4 text-center m-0" id="title">OneFeed
+
+                            <p id="lead" class="lead font-weight-bold  text-center mb-1">Your one stop shop for online
+                                boards</p>
+
+                        </h1>
+
+                    </span>
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
     </div>
 
 
@@ -72,19 +85,29 @@
                     </div>
                 </form>
 
-                <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-outline-danger btn-large px-5" id="sign-up">Sign Up</button>
-                        <button type="button" class="btn btn-outline-danger btn-large px-5" id="sign-in">Sign In</button>
-                    </div>
-                    <div class="col-3"></div>
-                </div>
-
+            
             </div>
-            <div class="col-4"></div>
         </div>
+
+          <hr>
+
+            <span class="row m-4">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 mx-sm-3">
+                    <button type="button" class="btn btn-outline-primary btn-large px-sm-4 shadow-lg" id="sign-up">Sign Up</button>
+                    <button type="button" class="btn btn-outline-primary btn-large px-sm-4 shadow-lg" id="sign-in">Sign In</button>
+                </div>
+                <div class="col-md-2"></div>
+            </span>
+            <hr>
+        
     </div>
+    
+
+    <!-- footer -->
+    <footer class="footer text-center text-white align-top">
+        &copy; Copyright 2018
+    </footer>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
