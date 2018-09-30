@@ -16,6 +16,13 @@
     
     width: 100%;
 }
+.card-body {
+    width: 100%;
+}
+/* .btn-group-toggle {
+width: 16.6%;
+
+} */
 
 
 
@@ -36,6 +43,9 @@ footer {
 }
 
 @media screen and (max-width:770px) {
+    #mobile-carousel {
+        width: 100%;
+    }
    .title {
         
         font-size: 10pt;
@@ -62,10 +72,7 @@ footer {
     #logo{
         display: none;
     }
-    /* #form {
-        width: 100%;
-        justify-content: center;
-    } */
+   
     #title, .title{
        width: 100%;
        font-size: 22pt;
@@ -73,6 +80,7 @@ footer {
     
     #button-check, #label{
        font-size: 6pt;
+    
     
     
     }
