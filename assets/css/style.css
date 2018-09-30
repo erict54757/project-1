@@ -1,126 +1,93 @@
 
-
 #logo {
     width: auto;
     height: 100%;
     border-radius: 5px;
-   
+   }
+
+   #label{
+    
+    width: 100%;
 }
-#label{
+#carouselExampleFade{
     
     width: 100%;
 }
 
-#contain-1 {
-    width: 65%;
-} 
+
 #form {
-    margin-top: 10%;
-    
-   
-  float: right;
+    float: right;
 }
 .title {
-    float: left;
+    float: center;
   
-}
-.card-div {
-    width: 28%;
 }
 #mobile-carousel {
-    display: none;
+    width: 85%;
+}
+footer {
+    line-height: .5;
+    height: 30px;
+    width: 100%;
+    background-color: #000000;
+    position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
 }
 
-
 @media screen and (max-width:770px) {
-  
-  
-    .title {
+   .title {
         float: right;
         font-size: 10pt;
     }
     
  #form {
      float: center;
-   
-    
- 
-   margin: 0%;
-   margin-bottom: 5%;
+     margin: 0%;
+     margin-bottom: 5%;
 }
 #lead {
-    font-size: 8pt;
+    font-size: 10pt;
     margin: 0%;
 }
+
     
-    
-    
-    #contain-1{
-        width: 65%;
-        display: none;
-    }
-   
- 
-   #mobile-carousel {
-       width: 65%;
-       display: block;
-   }
    #logo {
    width: 25%;
    height: 100%;
    }
-   #platform-card {
-       padding-left: 5%;
-       padding-right: 5%;
-   }
    
-
-
-
-   .card-div {
-    width: 100%;
-}
    
-  
-  
-
-
 @media screen and (max-width: 640px){
     #logo{
         display: none;
     }
     #form {
-        
-   margin-left: 25%;
-   margin-right: 25%;
-   margin-bottom: 0%;
-  
-
-    }
-    .title{
-       width: 100%;
-    }
-    #search {
-        padding: 0%;
-        
-    }
-    
-    .btn-group-toggle, #label{
-        display: inline;
-       
-    
-    }
-   
-   
-    #mobile-carousel {
         width: 100%;
+        justify-content: center;
     }
-   
+    #title, .title{
+       width: 100%;
+       font-size: 22pt;
+    }
     
-
+    #button-check, #label{
+       font-size: 6pt;
+    
+    
+    }
+    #addButton {
+        width: 40%;
+        
+       
+       
+    }
+ 
 }
      
- }
+
  
 
    
