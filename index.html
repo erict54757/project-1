@@ -5,23 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
     <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+
+
     <title>ONE FEED</title>
 </head>
 <style>
-   
     /* background: url("https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2017%2F10%2Fwebsites.jpg&w=1000&q=70");  */
-  
+
     .about {
         font-size: 27px;
         font-family: 'Oswald', sans-serif;
     }
+
     h2 {
         font-size: 45px;
+    }
+
+    #sign-in {
+        float: right;
     }
 </style>
 
@@ -34,59 +41,48 @@
 
     <div class="container">
         <div class="p-3 text-center text-white">
-            <p class= "about">
-                Tired of spending hours searching for the news you want in different platforms? Say no more! This web application gives you
+            <p class="about">
+                Tired of spending hours searching for the news you want in different platforms? Say no more! This web
+                application gives you
                 the ability to pull the news you want and need from multiple platforms all in one dashboard.
             </p>
             <h2>Sign up for your free trial now!</h2>
         </div>
     </div>
-<br>
+    <br>
 
     <div class="user-container my-4">
         <div class="row">
             <div class="col-3"></div>
-            <div class="col-6 border border-danger"id = firebaseui-auth-container>
-                    
-                
+            <div class="col-6">
+
+                <form class="text-white">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                </form>
+
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-outline-danger btn-large px-5" id="sign-up">Sign Up</button>
+                        <button type="button" class="btn btn-outline-danger btn-large px-5" id="sign-in">Sign In</button>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
             </div>
             <div class="col-3"></div>
         </div>
     </div>
 
-
-
-
-    <script type="text/javascript">
-        // FirebaseUI config.
-        var uiConfig = {
-          signInSuccessUrl: 'https://erict54757.github.io/One-feed/dashboard.html',
-          signInOptions: [
-            // Leave the lines as is for the providers you want to offer your users.
-            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-            // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-            // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-            // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-            firebase.auth.EmailAuthProvider.PROVIDER_ID,
-            // firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-            // firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
-          ],
-          // tosUrl and privacyPolicyUrl accept either url string or a callback
-          // function.
-          // Terms of service url/callback.
-          tosUrl: '<your-tos-url>',
-          // Privacy policy url/callback.
-          privacyPolicyUrl: function() {
-            window.location.assign('<your-privacy-policy-url>');
-          }
-        };
-  
-        // Initialize the FirebaseUI Widget using Firebase.
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-        // The start method will wait until the DOM is loaded.
-        ui.start('#firebaseui-auth-container', uiConfig);
-      </script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+        crossorigin="anonymous"></script>
+    <script src="assets/js/logic.js"></script>
 </body>
 
 </html>
