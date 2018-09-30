@@ -5,60 +5,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
     <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
     <script src="assets/js/logic.js"></script>
-    
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <title>ONE FEED</title>
 </head>
 <style>
-   
+
     /* background: url("https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2017%2F10%2Fwebsites.jpg&w=1000&q=70");  */
   
-    .about {
-        font-size: 27px;
-        font-family: 'Oswald', sans-serif;
-    }
-    h2 {
-        font-size: 45px;
-    }
-    #sign-in{
-        float: right;
-    }
+   
 </style>
 
-<body class="bg-dark">
+<body>
 
-    <div class="jumbotron jumbotron-fluid bg-dark">
+    <div class="jumbotron jumbotron-fluid mb-0 pt-1 pb-1 px-0 shadow-lg bg-dark text-light">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
 
-    </div>
+                    <img class="p-1" id="logo" src="assets/images/logo.jpg" alt="" srcset="">
 
 
-    <div class="container">
-        <div class="p-3 text-center text-white">
-            <p class= "about">
-                Tired of spending hours searching for the news you want in different platforms? Say no more! This web application gives you
-                the ability to pull the news you want and need from multiple platforms all in one dashboard.
-            </p>
-            <h2>Sign up for your free trial now!</h2>
-        </div>
-    </div>
-<br>
 
-    <div class="user-container my-4">
-        <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4">
-                <button type="button" class="btn btn-outline-danger btn-large px-5" id="sign-up">Sign Up</button>     
-                <button type="button" class="btn btn-outline-danger btn-large px-5" id="sign-in">Sign In</button>
+                    <span class=" title m-0 mb-5">
+                        <h1 class="display-4 text-center m-0" id="title">OneFeed
+
+                            <p id="lead" class="lead font-weight-bold  text-center mb-1">Your one stop shop for online
+                                boards</p>
+
+                        </h1>
+
+                    </span>
+
+
+
+                </div>
+
+
             </div>
-            <div class="col-4"></div>
+
+
         </div>
     </div>
+
+
+
+
+
+
+    <div class="container mt-5 shadow-lg rounded">
+        <hr>
+
+        <div class="row rounded">
+            <div class="p-3 text-center text-dark">
+                <p class="about">
+                    Tired of spending hours searching for the news you want in different platforms? Say no more! This
+                    web application gives you
+                    the ability to pull the news you want and need from multiple platforms all in one dashboard.
+                </p>
+                <h2 class="about">Sign up for your free trial now!</h2>
+            </div>
+        </div>
+
+          <hr>
+
+            <span class="row m-4">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 mx-sm-3">
+                    <button type="button" class="btn btn-outline-primary btn-large px-sm-4 shadow-lg" id="sign-up">Sign Up</button>
+                    <button type="button" class="btn btn-outline-primary btn-large px-sm-4 shadow-lg" id="sign-in">Sign In</button>
+                </div>
+                <div class="col-md-2"></div>
+            </span>
+            <hr>
+        
+    </div>
+    
+
+    <!-- footer -->
+    <footer class="footer text-center text-white align-top">
+        &copy; Copyright 2018
+    </footer>
 
 
 
