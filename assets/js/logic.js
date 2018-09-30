@@ -11,31 +11,56 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var database = firebase.database();
+
 //   global variables
 
 
 //===============================================================================================
 // firebase login stuff
-firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+
+var signUp = $("#sign-up");
+var signIn = $("#sign-in");
+
+$("#sign-up").on("click", function (event) {
+  event.preventDefault();
+  // firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+  var email = $("#exampleInputEmail1").val().trim();
+  var password = $("#exampleInputPassword1").val().trim();
+
+
+  console.log(email);
+  console.log(password);
   // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
+  // var errorCode = error.code;
+  // var errorMessage = error.message;
+
+  $(".form-control").val("")
+
+database.ref().push({
+  email: email,
+  password: password,
 });
 
-$("#sign-up").on("click", createUserWithEmailAndPassword);
-console.log($(this).text());
+});
+// });
+
+
+
+
 
 // sign in existing users
-firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-});
+// firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+//   $("#sign-in").on("click");
+// console.log($(this).text());
 
-$("#sign-in").on("click", signInWithEmailAndPassword);
-console.log($(this).text());
+  // Handle Errors here.
+  // var errorCode = error.code;
+  // var errorMessage = error.message;
+
+// });
+
+
 
 
 // sidebar button clicks w/api calls
