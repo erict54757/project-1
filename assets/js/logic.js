@@ -58,7 +58,7 @@ $(document).ready(function() {
   // });
 
   // sidebar button clicks w/api calls
-  $("#reddit").on("click", function() {
+  $(".button-check").on("click", function() {
     console.log(this.id);
     var div1 = $("<div>");
         $(div1).addClass("carousel-item active");
@@ -77,8 +77,7 @@ $(document).ready(function() {
         $(div1).append(div2);
         $(".div0").append(div1);
     // Constructing a URL to search Giphy for the name of the person who said the quote
-    var queryURL =
-      "https://api.giphy.com/v1/gifs/search?q=monkey&api_key=dc6zaTOxFJmzC&limit=10";
+    var queryURL = this.dataset.url;
 
     // Performing our AJAX GET request
     $.ajax({
