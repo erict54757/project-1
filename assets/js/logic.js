@@ -1,62 +1,91 @@
 // on doc load
 $(document).ready(function() {
-  //firbase initialize
-  var config = {
-    apiKey: "AIzaSyCzV3uup5hMyfXqML9oOb81r_dLQcUHlNk",
-    authDomain: "feed-dcfe4.firebaseapp.com",
-    databaseURL: "https://feed-dcfe4.firebaseio.com",
-    projectId: "feed-dcfe4",
-    storageBucket: "",
-    messagingSenderId: "284436246284"
-  };
-  firebase.initializeApp(config);
+  //=============================================================================================================
+  //call to initialize
+  var app_firebase = {};
+ (function(){
+ // Initialize Firebase
+ var config = {
+   apiKey: "AIzaSyCzV3uup5hMyfXqML9oOb81r_dLQcUHlNk",
+   authDomain: "feed-dcfe4.firebaseapp.com",
+   databaseURL: "https://feed-dcfe4.firebaseio.com",
+   projectId: "feed-dcfe4",
+   storageBucket: "feed-dcfe4.appspot.com",
+   messagingSenderId: "284436246284"
+ };
+ firebase.initializeApp(config);
 
-  // var database = firebase.database();
+ firebase_app = firebase;
 
-  //   global variables
+})()
+//login stuff
+(function() {
+  // Initialize the FirebaseUI Widget using Firebase.
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+var uiConfig = {
+  callbacks: {
+    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+      // User successfully signed in.
+      // Return type determines whether we continue the redirect automatically
+      // or whether we leave that to developer to handle.
+      return true;
+    },
+    uiShown: function() {
+      // The widget is rendered.
+      // Hide the loader.
+      document.getElementById("loader").style.display = "none";
+    }
+  },
+  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+  signInFlow: "popup",
+  signInSuccessUrl: "main.html",
+  signInOptions: [
+    // Leave the lines as is for the providers you want to offer your users.
+    // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    // firebase.auth.PhoneAuthProvider.PROVIDER_ID
+  ]
+  // Terms of service url.
+  // tosUrl: '<your-tos-url>',
+  // // Privacy policy url.
+  // privacyPolicyUrl: '<your-privacy-policy-url>'
+};
 
-  //===============================================================================================
-  // firebase login stuff
+// The start method will wait until the DOM is loaded.
+ui.start("#firebaseui-auth-container", uiConfig);
+})();
 
-  // elements
-var signUp = $("#sign-up");
-var signIn = $("#sign-in");
+//logout stuff
+var mainApp = {};
 
-// add login event
-$(signIn).on("click", e => {
-  var email = $("#exampleInputEmail1").val();
-  console.log(email);
-  var password = $("#exampleInputPassword1").val();
-  console.log(password);
-  var auth = firebase.auth();
-  // sign in
-  var promise = auth.signInWithEmailAndPassword(email, password);
-  promise.catch(e => console.log(e.message));
-});
+(function(){
+    var firebase = firebase_app;
+    var uid = null;
+    
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      uid = user.uid;
+    }else{
+        //redirect to login page
+        uid = null;
+        window.location.replace("index.html");
+    }
+  });
 
-// signup event
-$(signUp).on("click", e => {
-  // get email and password
-  // check for real emails
-  var email = $("#exampleInputEmail1").val();
-  console.log(email);
-  var password = $("#exampleInputPassword1").val();
-  console.log(password);
-  var auth = firebase.auth();
-  // sign in
-  var promise = auth.createUserWithEmailAndPassword(email, password);
-  promise
-    .catch(e => console.log(e.message))
-});
-
-// realtime listener
-firebase.auth().onAuthStateChanged(firebaseUser => {
-  if (firebaseUser) {
-    console.log(firebaseUser);
-  } else {
-    console.log("not logged in");
+  function logOut(){
+      firebase.auth().signOut();
   }
-})
+
+  mainApp.logOut = logOut;
+
+})()
+
+//==================================================================================================
+
 
   // sidebar button clicks w/api calls
   $(".button-check").on("click", function() {
