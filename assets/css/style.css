@@ -10,10 +10,10 @@
 
    #label, .button-check{
      width: 100%;
-     background-color: #000000;
+     
      
 }
-#sign-up, #sign-in{
+#sign-up, #sign-in, #label{
     background-color: #000000;
 
 }
