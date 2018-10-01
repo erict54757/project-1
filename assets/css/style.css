@@ -1,5 +1,9 @@
 
 /* dashboard page */
+#logout {
+    right: 0;
+    bottom: 0;
+}
 #logo {
     width: auto;
     height: 100%;
@@ -13,7 +17,7 @@
      
      
 }
-#sign-up, #sign-in, #label{
+#sign-up, #sign-in, #label, #logout{
     background-color: #000000;
 
 }
@@ -37,7 +41,7 @@ html {
   }
   body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
   footer {
     position: absolute;
@@ -95,18 +99,18 @@ h2 {
        width: 100%;
        font-size: 22pt;
     }
+    #logout{
+        font-size: 6pt;
+        top: 0;
+    }
     
     .button-check, #label{
        font-size: 6pt;
-    
-    
-    
-    }
+       padding: 0;
+        }
     #addButton {
         width: 40%;
         
-       
-       
     }
     /* landing page */
     .about{
