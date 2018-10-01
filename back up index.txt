@@ -9,14 +9,10 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
     <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
-
-
-
+    <script src="assets/js/logic.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <title>ONE FEED</title>
 </head>
@@ -95,11 +91,11 @@
 
     <!-- footer -->
     <footer class="footer text-center text-white align-top">
-       <strong>&copy; Copyright 2018</strong>   
+        &copy; Copyright 2018
     </footer>
 
 
- <script src="assets/js/logic.js"></script>
+
 </body>
 
 </html>
