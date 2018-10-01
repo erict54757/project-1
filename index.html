@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
 
 
 
@@ -22,10 +22,7 @@
     <title>ONE FEED</title>
 </head>
 <style>
-
     /* background: url("https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2017%2F10%2Fwebsites.jpg&w=1000&q=70");  */
-  
-   
 </style>
 
 <body>
@@ -77,10 +74,11 @@
                 </p>
                 <br>
                 <h2 class="about">Sign up for your free trial now!</h2>
+                <div id="firebaseui-auth-container"></div>
             </div>
         </div>
 
-        <hr>
+        <!-- <hr>
 
 
         <span class="row m-4">
@@ -91,7 +89,7 @@
             </div>
             <div class="col-md-2"></div>
         </span>
-        <hr>
+        <hr> -->
 
     </div>
 
@@ -101,8 +99,9 @@
         <strong>&copy; Copyright 2018</strong>
     </footer>
 
-
     <script src="assets/js/logic.js"></script>
+    <script src="assets/js/login.js"></script>
+
 </body>
 
 </html>
