@@ -1,4 +1,5 @@
 
+/* dashboard page */
 #logo {
     width: auto;
     height: 100%;
@@ -7,10 +8,18 @@
   left: 0px;
    }
 
-   #label{
+   #label, .button-check{
      width: 100%;
      background-color: #000000;
+     
 }
+#sign-up, #sign-in{
+    background-color: #000000;
+
+}
+  #button-check, #label{
+       font-size: 1rem;
+    }
 #carouselExampleFade{
      width: 100%;
 }
@@ -26,10 +35,21 @@ footer {
     width: 100%;
     background-color: #000000;
     position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+}
+/* landing page */
+.about {
+    font-size: 27px;
+    font-family: 'Oswald', sans-serif;
+}
+h2 {
+    font-size: 45px;
+}
+#sign-in{
+    float: right;
 }
 
 @media screen and (max-width:770px) {
@@ -62,6 +82,7 @@ footer {
     #logo{
         display: none;
     }
+ 
    
     #title, .title{
        width: 100%;
@@ -79,6 +100,10 @@ footer {
         
        
        
+    }
+    /* landing page */
+    .about{
+        font-size: 1rem;
     }
  
 }
