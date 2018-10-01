@@ -11,7 +11,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/logic.js"></script>
 </head>
 <style>
@@ -64,37 +64,43 @@
             <div class="card-body col-12  shadow-lg p-0 my-2 btn-toolbar d-flex justify-content-center" role="toolbar"
                 id="button-card">
 
-                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="reddit" data-toggle="buttons">
+                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="reddit" data-url="https://api.giphy.com/v1/gifs/search?q=monkey&api_key=dc6zaTOxFJmzC&limit=10"
+                    data-toggle="buttons">
                     <label class="btn btn-secondary btn-sm active border border-dark shadow-md my-1 p-1 text-primary"
                         id="label">
-                        <input type="checkbox" checked autocomplete="off" >Reddit
+                        <input type="checkbox" checked autocomplete="off">Reddit
                     </label>
                 </div>
-                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="" data-toggle="buttons">
+                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="4chan" data-url="https://api.giphy.com/v1/gifs/search?q=turtle&api_key=dc6zaTOxFJmzC&limit=10"
+                    data-toggle="buttons">
                     <label class="btn btn-secondary btn-sm active border border-dark shadow-md my-1 p-1 text-primary"
                         id="label">
                         <input type="checkbox" checked autocomplete="off"> 4c$han
                     </label>
                 </div>
-                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="" data-toggle="buttons">
+                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="" data-url=""
+                    data-toggle="buttons">
                     <label class="btn btn-secondary btn-sm active border border-dark shadow-md my-1 p-1 text-primary"
                         id="label">
                         <input type="checkbox" checked autocomplete="off"> StumbleUpon
                     </label>
                 </div>
-                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="" data-toggle="buttons">
+                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="" data-url=""
+                    data-toggle="buttons">
                     <label class="btn btn-secondary btn-sm active border border-dark shadow-md my-1 p-1 text-primary"
                         id="label">
                         <input type="checkbox" checked autocomplete="off"> Checked
                     </label>
                 </div>
-                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="" data-toggle="buttons">
+                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="" data-url=""
+                    data-toggle="buttons">
                     <label class="btn btn-secondary btn-sm active border border-dark shadow-md my-1 p-1 text-primary"
                         id="label">
                         <input type="checkbox" checked autocomplete="off"> Checked
                     </label>
                 </div>
-                <div class="btn-group-toggle d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="" data-toggle="buttons">
+                <div class="btn-group-toggle d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="" data-url=""
+                    data-toggle="buttons">
                     <label class="btn btn-secondary btn-sm activeborder border-dark shadow-md my-1 p-1 text-primary" id="label">
                         <input type="checkbox" checked autocomplete="off"> Checked
                     </label>
@@ -261,7 +267,7 @@
                         </div>
                     </div> -->
 
-                    <!-- <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
@@ -269,23 +275,25 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-                </div> -->
+                </div>
             </div>
         </div>
+    </div>
+    </div>
 
 
-        <!-- footer -->
-        <footer class="footer text-center text-white align-top">
-            &copy; Copyright 2018
-        </footer>
+    <!-- footer -->
+    <footer class="footer text-center text-white align-top">
+        &copy; Copyright 2018
+    </footer>
 
 
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
 
 
