@@ -10,10 +10,10 @@
 
    #label, .button-check{
      width: 100%;
-     background-color: #000000;
+     
      
 }
-#sign-up, #sign-in{
+#sign-up, #sign-in, #label{
     background-color: #000000;
 
 }
@@ -29,17 +29,24 @@
 #mobile-carousel {
     width: 85%;
 }
-footer {
-    line-height: .5;
-    height: 30px;
-    width: 100%;
-    background-color: #000000;
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+  footer {
     position: absolute;
-    right: 0;
     bottom: 0;
-    left: 0;
-    padding: 1rem;
-}
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 40px;
+    background-color: #000000;
+  }
 /* landing page */
 .about {
     font-size: 27px;
