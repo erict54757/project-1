@@ -1,61 +1,91 @@
 // on doc load
 $(document).ready(function() {
-  //firbase initialize
-  var config = {
-    apiKey: "AIzaSyCzV3uup5hMyfXqML9oOb81r_dLQcUHlNk",
-    authDomain: "feed-dcfe4.firebaseapp.com",
-    databaseURL: "https://feed-dcfe4.firebaseio.com",
-    projectId: "feed-dcfe4",
-    storageBucket: "",
-    messagingSenderId: "284436246284"
-  };
-  firebase.initializeApp(config);
+  //=============================================================================================================
+  //call to initialize
+  var app_firebase = {};
+ (function(){
+ // Initialize Firebase
+ var config = {
+   apiKey: "AIzaSyCzV3uup5hMyfXqML9oOb81r_dLQcUHlNk",
+   authDomain: "feed-dcfe4.firebaseapp.com",
+   databaseURL: "https://feed-dcfe4.firebaseio.com",
+   projectId: "feed-dcfe4",
+   storageBucket: "feed-dcfe4.appspot.com",
+   messagingSenderId: "284436246284"
+ };
+ firebase.initializeApp(config);
 
-  var database = firebase.database();
+ firebase_app = firebase;
 
-  //   global variables
+})()
+//login stuff
+(function() {
+  // Initialize the FirebaseUI Widget using Firebase.
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+var uiConfig = {
+  callbacks: {
+    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+      // User successfully signed in.
+      // Return type determines whether we continue the redirect automatically
+      // or whether we leave that to developer to handle.
+      return true;
+    },
+    uiShown: function() {
+      // The widget is rendered.
+      // Hide the loader.
+      document.getElementById("loader").style.display = "none";
+    }
+  },
+  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+  signInFlow: "popup",
+  signInSuccessUrl: "main.html",
+  signInOptions: [
+    // Leave the lines as is for the providers you want to offer your users.
+    // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    // firebase.auth.PhoneAuthProvider.PROVIDER_ID
+  ]
+  // Terms of service url.
+  // tosUrl: '<your-tos-url>',
+  // // Privacy policy url.
+  // privacyPolicyUrl: '<your-privacy-policy-url>'
+};
 
-  //===============================================================================================
-  // firebase login stuff
+// The start method will wait until the DOM is loaded.
+ui.start("#firebaseui-auth-container", uiConfig);
+})();
 
-  var signUp = $("#sign-up");
-  var signIn = $("#sign-in");
+//logout stuff
+var mainApp = {};
 
-  $("#sign-up").on("click", function(event) {
-    event.preventDefault();
-    // firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-    var email = $("#exampleInputEmail1")
-      .val()
-      .trim();
-    var password = $("#exampleInputPassword1")
-      .val()
-      .trim();
-
-    console.log(email);
-    console.log(password);
-    // Handle Errors here.
-    // var errorCode = error.code;
-    // var errorMessage = error.message;
-
-    $(".form-control").val("");
-
-    database.ref().push({
-      email: email,
-      password: password
-    });
+(function(){
+    var firebase = firebase_app;
+    var uid = null;
+    
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      uid = user.uid;
+    }else{
+        //redirect to login page
+        uid = null;
+        window.location.replace("index.html");
+    }
   });
-  // });
 
-  // sign in existing users
-  // firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-  //   $("#sign-in").on("click");
-  // console.log($(this).text());
+  function logOut(){
+      firebase.auth().signOut();
+  }
 
-  // Handle Errors here.
-  // var errorCode = error.code;
-  // var errorMessage = error.message;
+  mainApp.logOut = logOut;
 
-  // });
+})()
+
+//==================================================================================================
+
 
   // sidebar button clicks w/api calls
   $(".button-check").on("click", function() {
