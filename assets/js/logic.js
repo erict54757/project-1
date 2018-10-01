@@ -19,27 +19,32 @@ $(document).ready(function() {
 
 })()
 //==================================================================================================
-
+var count=0
 
   // sidebar button clicks w/api calls
   $(".button-check").on("click", function() {
+    
     console.log(this.id);
     var div1 = $("<div>");
         $(div1).addClass("carousel-item active");
         var div2 = $("<div>");
         $(div2).addClass("mb-4 card-div");
-        var div3 = $("<div>");
+        var div3 = $("<div id=card-1>");
         $(div3).addClass("card rounded shadow-lg");
         var div4 = $("<div>");
         $(div4).addClass("card-body disp-1");
         var title = $("<h5>");
         $(title).addClass("card-title text-center")
         $(title).text(this.id);
+        count ++
         
         $(div3).append(div4);
         $(div2).append(div3);
         $(div1).append(div2);
-        $(".div0").append(div1);
+        $(".div0").prepend(div1);
+        if (count>1){
+          $(div1).removeClass("carousel-item active").addClass("carousel-item");
+        }
     // Constructing a URL to search Giphy for the name of the person who said the quote
     var queryURL = this.dataset.url;
 
@@ -55,8 +60,10 @@ $(document).ready(function() {
         console.log(results);
         // Looping over every result item
         for (var i = 0; i < results.length; i++) {
+          
           // Creating a div for the gif
           var gifDiv = $("<div>");
+          $(".disp-1").empty();
 
           // Storing the result item's rating
           var rating = results[i].rating;
