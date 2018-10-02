@@ -101,12 +101,12 @@ $(document).ready(function() {
               articleDump.append(newDiv);
               $(".disp-1").append(articleDump);
             }
-          } else if (innerId === "stackExchange") {
+          } else if (innerId === "stackExchangeInner") {
             var result = response.items;
             $(".disp-1").empty();
-            for (var i = 0; 0 < result.length; i++) {
+            for (var i = 0; i < result.length; i++) {
               var articleDump = $("<div>");
-            
+
               var newDiv = $(
                 "<div class='container bg-dark rounded p-3 my-1'>"
               );
@@ -131,7 +131,7 @@ $(document).ready(function() {
               articleDump.append(newDiv);
               $(".disp-1").append(articleDump);
             }
-          } else if (innerId === "hackerNews") {
+          } else if (innerId === "hackerNewsInner") {
             var result = response.articles;
             $(".disp-1").empty();
             for (var i = 0; i < result.length; i++) {
@@ -166,13 +166,13 @@ $(document).ready(function() {
               hackArticleDump.append(newDiv);
               $(".disp-1").append(hackarticleDump);
             }
-          } else if (innerId === "youTube") {
+          } else if (innerId === "youTubeInner") {
             var result = response.items;
             $(".disp-1").empty();
             for (var i = 0; i < result.length; i++) {
               // Creating a div for the videos
               var videoDiv = $("<div>");
-             
+
               var divContainer = $(
                 "<div class= 'container bg-dark text-white p-3 pl-2 my-2 col-5'>"
               );
@@ -199,12 +199,11 @@ $(document).ready(function() {
               videoDiv.append(divContainer);
               $(".disp-1").append(videoDiv);
             }
-          } else if (innerId === "nyt") {
+          } else if (innerId === "nytInner") {
             var result = response.response.docs;
             $(".disp-1").empty();
             for (var i = 0; i < result.length; i++) {
               var articleDump = $("<div>");
-              
 
               var newDiv = $(
                 "<div class='container bg-danger rounded p-3 my-1'>"
@@ -236,7 +235,7 @@ $(document).ready(function() {
               articleDump.append(newDiv);
               $(".disp-1").append(articleDump);
             }
-          } else if (innerId === "giphy") {
+          } else if (innerId === "giphyInner") {
             // Storing an array of results in the results variable
             var results = response.data;
             console.log(results);
@@ -245,7 +244,6 @@ $(document).ready(function() {
             for (var i = 0; i < results.length; i++) {
               // Creating a div for the gif
               var gifDiv = $("<div>");
-              
 
               // Storing the result item's rating
               var rating = results[i].rating;
