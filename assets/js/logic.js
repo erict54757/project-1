@@ -25,6 +25,9 @@ $(document).ready(function() {
 
   // sidebar button clicks w/api calls
   $(".button-check").on("click", function() {
+    // Hides start place holder image
+    $("#startImage").hide();
+    var that= this
     console.log(this.id);
     var cardId = this.id + "Card";
     var innerId = this.id + "Inner";
@@ -100,6 +103,7 @@ $(document).ready(function() {
               title.prepend(badge);
               newDiv.append(title);
               newDiv.append(link);
+              
 
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
@@ -138,7 +142,7 @@ $(document).ready(function() {
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
             }
-          } else if (innerId === "hackerNewsInner") {
+          } else if (that.id === "hackerNews") {
             var result = response.articles;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -173,7 +177,7 @@ $(document).ready(function() {
               hackArticleDump.append(newDiv);
               $("#" + innerId).append(hackArticleDump);
             }
-          } else if (innerId === "youTubeInner") {
+          } else if (that.id === "youTube") {
             var result = response.items;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -181,32 +185,32 @@ $(document).ready(function() {
               var videoDiv = $("<div>");
 
               var divContainer = $(
-                "<div class= 'container bg-dark text-white p-3 pl-2 my-2'>"
+                "<div class= 'container bg-dark text-white rounded p-3 pl-2 my-2'>"
               );
               var bdg = $("<span class='badge badge-white mr-2'>");
-              var title = result[i].snippet.title;
+              // var title = result[i].snippet.title;
               var vidID = result[i].id.videoId;
 
               var iframe =
-                '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
+                '<iframe class="rounded col-12" width="560" height="315" src="https://www.youtube.com/embed/' +
                 vidID +
                 '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
 
               // Creating a paragraph tag with the result item's title and video
-              bdg.text(i + 1);
-              var p = $("<p>")
-                .text("Title: " + title)
-                .addClass("youtubeTitle");
-              var vidIframe = $("<div>").html(iframe);
+              // bdg.text(i + 1);
+              // var p = $("<p>")
+              //   .text("Title: " + title)
+              //   .addClass("youtubeTitle");
+              var vidIframe = $("<div class='col-md-6 offset-md-3 d-flex justify-content-center'>").html(iframe);
 
               // Appending the paragraph and personImage we created to the "videoDiv" div we created
-              p.prepend(bdg);
-              divContainer.append(p);
+              // p.prepend(bdg);
+              // divContainer.append(p);
               divContainer.append(vidIframe);
               videoDiv.append(divContainer);
               $("#" + innerId).append(videoDiv);
             }
-          } else if (innerId === "nytInner") {
+          } else if (that.id === "nyt") {
             var result = response.response.docs;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -242,7 +246,7 @@ $(document).ready(function() {
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
             }
-          } else if (innerId === "giphyInner") {
+          } else if (that.id === "giphy") {
             // Storing an array of results in the results variable
             var results = response.data;
             console.log(results);
@@ -250,14 +254,14 @@ $(document).ready(function() {
             // Looping over every result item
             for (var i = 0; i < results.length; i++) {
               // Creating a div for the gif
-              var gifDiv = $("<div>");
+              var gifDiv = $("<div col-12>");
 
               // Storing the result item's rating
               var rating = results[i].rating;
 
               // Creating a paragraph tag with the result item's rating
-              var p = $("<p>").text("Rating: " + rating);
-              var personImage = $("<img>");
+              var p = $("<p class='col-12 d-flex justify-content-center'>").text("Rating: " + rating);
+              var personImage = $("<img class='col-sm-8 offset-sm-2'>");
 
               // Giving the image tag an src attribute of a proprty pulled off the
               // result item
