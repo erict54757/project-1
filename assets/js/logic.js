@@ -24,7 +24,8 @@ $(document).ready(function() {
   // sidebar button clicks w/api calls
   $(".button-check").on("click", function() {
     console.log(this.id);
-    var cardId = this.id + "card";
+    var cardId = this.id + "Card";
+    var innerId = this.id + "Inner";
     if (this.dataset.state === "inactive") {
       if (count > 1) {
         $(div1)
@@ -42,6 +43,7 @@ $(document).ready(function() {
       $(div3).addClass("card rounded shadow-lg");
       var div4 = $("<div>");
       $(div4).addClass("card-body disp-1");
+      $(div1).attr("id", innerId);
       var title = $("<h5>");
       $(title).addClass("card-title text-center");
       $(title).text(this.id);
@@ -65,36 +67,48 @@ $(document).ready(function() {
         .then(function(response) {
           //TODO:
           //if statements creating styling for each API
+          if ("#" + innerId === "redditInner") {
 
-          // Storing an array of results in the results variable
-          var results = response.data;
-          console.log(results);
-          // Looping over every result item
-          for (var i = 0; i < results.length; i++) {
-            // Creating a div for the gif
-            var gifDiv = $("<div class= 'col-sm-6 offset-sm-3'>");
-            $(".disp-1").empty();
+          } else if ("#" + innerId === "stackExchange") {
 
-            // Storing the result item's rating
-            var rating = results[i].rating;
+          } else if ("#" + innerId === "stackExchange") {
 
-        
-          // Creating a paragraph tag with the result item's rating
-          var p = $("<p class='d-flex justify-content-center'>").text("Rating: " + rating);
+          } else if ("#" + innerId === "hackerNews") {
 
-          // Creating an image tag
-          var personImage = $("<img class=' col-12'>");
+          } else if ("#" + innerId === "youTube") {
 
-            // Giving the image tag an src attribute of a proprty pulled off the
-            // result item
-            personImage.attr("src", results[i].images.fixed_height.url);
+          } else if ("#" + innerId === "nyt") {
+            
+          } else if ("#" + innerId === "giphy") {
+            // Storing an array of results in the results variable
+            var results = response.data;
+            console.log(results);
+            // Looping over every result item
+            for (var i = 0; i < results.length; i++) {
+              // Creating a div for the gif
+              var gifDiv = $("<div>");
+              $(".disp-1").empty();
 
-            // Appending the paragraph and personImage we created to the "gifDiv" div we created
-            gifDiv.append(p);
-            gifDiv.append(personImage);
+              // Storing the result item's rating
+              var rating = results[i].rating;
 
-            // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-            $(".disp-1").prepend(gifDiv);
+              // Creating a paragraph tag with the result item's rating
+              var p = $("<p>").text("Rating: " + rating);
+
+              // Creating an image tag
+              var personImage = $("<img>");
+
+              // Giving the image tag an src attribute of a proprty pulled off the
+              // result item
+              personImage.attr("src", results[i].images.fixed_height.url);
+
+              // Appending the paragraph and personImage we created to the "gifDiv" div we created
+              gifDiv.append(p);
+              gifDiv.append(personImage);
+
+              // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+              $(".disp-1").prepend(gifDiv);
+            }
           }
           $(div4).prepend(title);
         });
@@ -106,9 +120,17 @@ $(document).ready(function() {
 
   // search functionality
   $("#search").on("click", function() {
+    var input = $("#addButton").val().trim();
     //global funtion array
     //push card id to array on button click/ remove if inactive
     //for each ite m in array if id exists on page create search url
     //open search url in card based on id
+    var youtubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=" + input + "&type=video&order=relevance&maxResults=10&key=AIzaSyB9iTGjZQ4ys1x9-h2X2i_yoGON2u8YsCo"
+
   });
 });
+// if (div exists){
+  // ajax call
+  // then
+  // display data
+// }
