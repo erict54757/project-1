@@ -25,6 +25,7 @@ $(document).ready(function() {
 
   // sidebar button clicks w/api calls
   $(".button-check").on("click", function() {
+    var that= this
     console.log(this.id);
     var cardId = this.id + "Card";
     var innerId = this.id + "Inner";
@@ -45,6 +46,7 @@ $(document).ready(function() {
       $(div3).addClass("card rounded shadow-lg");
       var div4 = $("<div>");
       $(div4).addClass("card-body disp-1");
+      $(div4).addClass(this.id);
       $(div1).attr("id", innerId);
       var btnTitle = $("<h5>");
       $(btnTitle).addClass("card-title text-center");
@@ -70,9 +72,12 @@ $(document).ready(function() {
           //=========================================================================================================================
           //display and styling
           //===========================================================================================================================
-          if (innerId === "redditInner") {
+          console.log(that.id); if (that.id === "reddit") {
             var result = response.data.children;
-            $(".disp-1").empty();
+            
+            $("."+that.id).empty();
+            
+            
             for (var i = 0; i < result.length; i++) {
               var articleDump = $("<div>");
 
@@ -97,13 +102,14 @@ $(document).ready(function() {
               title.prepend(badge);
               newDiv.append(title);
               newDiv.append(link);
+              
 
               articleDump.append(newDiv);
-              $(".disp-1").append(articleDump);
+              $("."+that.id).append(articleDump);
             }
-          } else if (innerId === "stackExchangeInner") {
+          } else if (that.id === "stackExchange") {
             var result = response.items;
-            $(".disp-1").empty();
+            $("."+that.id).empty();
             for (var i = 0; i < result.length; i++) {
               var articleDump = $("<div>");
 
@@ -129,11 +135,11 @@ $(document).ready(function() {
               newDiv.append(link);
 
               articleDump.append(newDiv);
-              $(".disp-1").append(articleDump);
+              $("."+that.id).append(articleDump);
             }
-          } else if (innerId === "hackerNewsInner") {
+          } else if (that.id === "hackerNews") {
             var result = response.articles;
-            $(".disp-1").empty();
+            $("."+that.id).empty();
             for (var i = 0; i < result.length; i++) {
               var hackArticleDump = $("<div>");
 
@@ -164,11 +170,11 @@ $(document).ready(function() {
               newDiv.append(newSmall);
 
               hackArticleDump.append(newDiv);
-              $(".disp-1").append(hackarticleDump);
+              $("."+that.id).append(hackarticleDump);
             }
-          } else if (innerId === "youTubeInner") {
+          } else if (that.id === "youTube") {
             var result = response.items;
-            $(".disp-1").empty();
+            $("."+that.id).empty();
             for (var i = 0; i < result.length; i++) {
               // Creating a div for the videos
               var videoDiv = $("<div>");
@@ -197,11 +203,11 @@ $(document).ready(function() {
               divContainer.append(p);
               divContainer.append(vidIframe);
               videoDiv.append(divContainer);
-              $(".disp-1").append(videoDiv);
+              $("."+that.id).append(videoDiv);
             }
-          } else if (innerId === "nytInner") {
+          } else if (that.id === "nyt") {
             var result = response.response.docs;
-            $(".disp-1").empty();
+            $("."+that.id).empty();
             for (var i = 0; i < result.length; i++) {
               var articleDump = $("<div>");
 
@@ -233,24 +239,24 @@ $(document).ready(function() {
               newDiv.append(newSmall);
 
               articleDump.append(newDiv);
-              $(".disp-1").append(articleDump);
+              $("."+that.id).append(articleDump);
             }
-          } else if (innerId === "giphyInner") {
+          } else if (that.id === "giphy") {
             // Storing an array of results in the results variable
             var results = response.data;
             console.log(results);
-            $(".disp-1").empty();
+            $("."+that.id).empty();
             // Looping over every result item
             for (var i = 0; i < results.length; i++) {
               // Creating a div for the gif
-              var gifDiv = $("<div>");
+              var gifDiv = $("<div col-12>");
 
               // Storing the result item's rating
               var rating = results[i].rating;
 
               // Creating a paragraph tag with the result item's rating
-              var p = $("<p>").text("Rating: " + rating);
-              var personImage = $("<img>");
+              var p = $("<p class='col-12 d-flex justify-content-center'>").text("Rating: " + rating);
+              var personImage = $("<img class='col-sm-8 offset-sm-2'>");
 
               // Giving the image tag an src attribute of a proprty pulled off the
               // result item
@@ -261,7 +267,7 @@ $(document).ready(function() {
               gifDiv.append(personImage);
 
               // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-              $(".disp-1").append(gifDiv);
+              $("."+that.id).append(gifDiv);
             }
           }
           $(div4).prepend(btnTitle);
