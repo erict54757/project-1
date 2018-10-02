@@ -1,6 +1,8 @@
+var mainApp = {};
+
 $(document).ready(function() {
 //logout stuff
-var mainApp = {};
+
 
 (function(){
     var firebase = firebase_app;
