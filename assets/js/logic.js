@@ -68,11 +68,18 @@ $(document).ready(function() {
           //TODO:
           //if statements creating styling for each API
           if ("#" + innerId === "redditInner") {
-          } else if ("#" + innerId === "stackExchangeInner") {
-          } else if ("#" + innerId === "hackerNewsInner") {
-          } else if ("#" + innerId === "youTubeInner") {
-          } else if ("#" + innerId === "nytInner") {
-          } else if ("#" + innerId === "giphyInner") {
+
+          } else if ("#" + innerId === "stackExchange") {
+
+          } else if ("#" + innerId === "stackExchange") {
+
+          } else if ("#" + innerId === "hackerNews") {
+
+          } else if ("#" + innerId === "youTube") {
+
+          } else if ("#" + innerId === "nyt") {
+            
+          } else if ("#" + innerId === "giphy") {
             // Storing an array of results in the results variable
             var results = response.data;
             console.log(results);
