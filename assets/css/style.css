@@ -1,4 +1,19 @@
 /* dashboard page */
+body{ background-image: radial-gradient(circle, #000000, #3b3b3b, #777777, #b9b9b9, #ffffff);
+  background-position-y: center;
+  /* background-image: linear-gradient(to top, #000000, #3b3b3b, #777777, #b9b9b9, #ffffff); */
+}
+#mobile-carousel{
+  
+  
+  height: 100%;
+  /* background-image: radial-gradient(circle, #000000, #3b3b3b, #777777, #b9b9b9, #ffffff); */
+  background-image: radial-gradient(circle, #ffffff, #b9b9b9, #777777, #3b3b3b, #000000);
+  background-image: radial-gradient(circle, #ffffff, #d2d2d2, #a6a6a6, #7c7c7c, #555555);
+}
+#startImage{
+  height: 75%;
+}
 #logout {
   right: 0;
   bottom: 0;
@@ -61,6 +76,7 @@ html {
 }
 body {
   /* Margin bottom by footer height */
+  min-height: 100%;
   margin-bottom: 40px;
 }
 footer {
@@ -138,6 +154,7 @@ h2 {
   #logo {
     display: none;
   }
+
 
   #title,
   .title {

@@ -25,6 +25,8 @@ $(document).ready(function() {
 
   // sidebar button clicks w/api calls
   $(".button-check").on("click", function() {
+    // Hides start place holder image
+    $("#startImage").hide();
     var that= this
     console.log(this.id);
     var cardId = this.id + "Card";
