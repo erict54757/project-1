@@ -72,17 +72,18 @@ $(document).ready(function() {
           // Looping over every result item
           for (var i = 0; i < results.length; i++) {
             // Creating a div for the gif
-            var gifDiv = $("<div>");
+            var gifDiv = $("<div class= 'col-sm-6 offset-sm-3'>");
             $(".disp-1").empty();
 
             // Storing the result item's rating
             var rating = results[i].rating;
 
-            // Creating a paragraph tag with the result item's rating
-            var p = $("<p>").text("Rating: " + rating);
+        
+          // Creating a paragraph tag with the result item's rating
+          var p = $("<p class='d-flex justify-content-center'>").text("Rating: " + rating);
 
-            // Creating an image tag
-            var personImage = $("<img>");
+          // Creating an image tag
+          var personImage = $("<img class=' col-12'>");
 
             // Giving the image tag an src attribute of a proprty pulled off the
             // result item
