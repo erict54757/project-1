@@ -67,37 +67,39 @@
             <div class="card-body col-12  shadow-lg p-0  btn-toolbar d-flex justify-content-center" role="toolbar" id="button-card">
 
                 <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="reddit" data-url="http://www.reddit.com/search.json?q=trending&t=all&sort=new&limit=10&apiKey=Ky0R8Y90Gwg6ZJ2K996wd9hH7DM"
-                    data-toggle="buttons">
+                    data-toggle="buttons" data-state="inactive">
                     <label class="btn btn-primary btn-sm shadow-md my-1 p-sm-2 text-primary" id="label">
                         <input type="checkbox" checked autocomplete="off">Reddit
                     </label>
                 </div>
-                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="stackExchange" data-url="http://api.stackexchange.com/2.2/questions?q=javascript&order=desc&sort=activity&site=stackoverflow&key=rjcMcQhVeLRQ0ZhQziUIbQ(("
-                    data-toggle="buttons">
+                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="stackExchange"
+                    data-url="http://api.stackexchange.com/2.2/questions?q=javascript&order=desc&sort=activity&site=stackoverflow&key=rjcMcQhVeLRQ0ZhQziUIbQ(("
+                    data-toggle="buttons" data-state="inactive">
                     <label class="btn btn-primary btn-sm shadow-md my-1 p-sm-2 text-primary" id="label">
                         <input type="checkbox" checked autocomplete="off"> Stack Exchange
                     </label>
                 </div>
-                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="hackerNews" data-url="https://newsapi.org/v2/top-headlines?sources=hacker-news&sortBy=popularity&keyword=trending&apiKey=8ff761229c714da0ad73442ee4507c1d"
-                    data-toggle="buttons">
+                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="hackerNews"
+                    data-url="https://newsapi.org/v2/top-headlines?sources=hacker-news&sortBy=popularity&keyword=trending&apiKey=8ff761229c714da0ad73442ee4507c1d"
+                    data-toggle="buttons" data-state="inactive">
                     <label class="btn btn-primary btn-sm shadow-md my-1 p-sm-2 text-primary" id="label">
                         <input type="checkbox" checked autocomplete="off"> Hacker News
                     </label>
                 </div>
                 <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="youTube" data-url="https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=trending&type=video&order=relevance&maxResults=10&key=AIzaSyB9iTGjZQ4ys1x9-h2X2i_yoGON2u8YsCo"
-                    data-toggle="buttons">
+                    data-toggle="buttons" data-state="inactive">
                     <label class="btn btn-primary btn-sm shadow-md my-1 p-sm-2 text-primary" id="label">
                         <input type="checkbox" checked autocomplete="off"> YouTube
                     </label>
                 </div>
                 <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="nyt" data-url="https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=b9f91d369ff59547cd47b931d8cbc56b%3A0%3A74623931&q=new&fq10"
-                    data-toggle="buttons">
+                    data-toggle="buttons" data-state="inactive">
                     <label class="btn btn-primary btn-sm shadow-md my-1 p-sm-2 text-primary" id="label">
                         <input type="checkbox" checked autocomplete="off"> New York Times
                     </label>
                 </div>
                 <div class="btn-group-toggle d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="giphy" data-url="https://api.giphy.com/v1/gifs/search?q=monkey&api_key=dc6zaTOxFJmzC&limit=10"
-                    data-toggle="buttons">
+                    data-toggle="buttons" data-state="inactive">
                     <label class="btn btn-primary btn-sm shadow-md my-1 p-sm-2 text-primary" id="label">
 
                         <input type="checkbox" checked autocomplete="off"> Giphy
@@ -122,6 +124,7 @@
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
 
                 <div class="carousel-inner div0">
+
                     <!-- <div class="carousel-item active">
                         <div class=" mb-4 card-div">
                             <div class="card rounded shadow-lg" id="card-1">
@@ -288,13 +291,13 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
     <script src="assets/js/logic.js"></script>
     <script src="assets/js/logout.js"></script>
-    <script src="assets/js/login.js"></script>
+    <!-- <script src="assets/js/login.js"></script> -->
 
 </body>
 
