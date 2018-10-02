@@ -1,5 +1,5 @@
 // on doc load
-$(document).ready(function() {
+$(document).ready(function () {
   //=============================================================================================================
   //call to initialize
   var app_firebase = {};
