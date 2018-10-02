@@ -120,17 +120,74 @@ $(document).ready(function() {
 
   // search functionality
   $("#search").on("click", function() {
-    var input = $("#addButton").val().trim();
+    var input = $("#addButton")
+      .val()
+      .trim();
+    var youtubeURL =
+      "https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=" +
+      input +
+      "&type=video&order=relevance&maxResults=10&key=AIzaSyB9iTGjZQ4ys1x9-h2X2i_yoGON2u8YsCo";
+
     //global funtion array
     //push card id to array on button click/ remove if inactive
     //for each ite m in array if id exists on page create search url
     //open search url in card based on id
-    var youtubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=" + input + "&type=video&order=relevance&maxResults=10&key=AIzaSyB9iTGjZQ4ys1x9-h2X2i_yoGON2u8YsCo"
-
+    $(".disp-1")
+      .empty()
+      .append(function() {
+        if (id === "redditInner") {
+          $.ajax({
+            url: queryURL,
+            method: "GET"
+          })
+            // After the data comes back from the API
+            .then(function(response) {});
+        }
+        if (id === "stackExchangeInner") {
+          $.ajax({
+            url: queryURL,
+            method: "GET"
+          })
+            // After the data comes back from the API
+            .then(function(response) {});
+        }
+        if (id === "hackerNewsInner") {
+          $.ajax({
+            url: queryURL,
+            method: "GET"
+          })
+            // After the data comes back from the API
+            .then(function(response) {});
+        }
+        if (id === "youTubeInner") {
+          $.ajax({
+            url: queryURL,
+            method: "GET"
+          })
+            // After the data comes back from the API
+            .then(function(response) {});
+        }
+        if (id === "nytInner") {
+          $.ajax({
+            url: queryURL,
+            method: "GET"
+          })
+            // After the data comes back from the API
+            .then(function(response) {});
+        }
+        if (id === "giphyInner") {
+          $.ajax({
+            url: queryURL,
+            method: "GET"
+          })
+            // After the data comes back from the API
+            .then(function(response) {});
+        }
+      });
   });
 });
 // if (div exists){
-  // ajax call
-  // then
-  // display data
+// ajax call
+// then
+// display data
 // }
