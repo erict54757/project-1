@@ -12,7 +12,7 @@ body{ background-image: radial-gradient(circle, #000000, #3b3b3b, #777777, #b9b9
   background-image: radial-gradient(circle, #ffffff, #d2d2d2, #a6a6a6, #7c7c7c, #555555);
 }
 #startImage{
-  height: 75%;
+  height: 480px;
 }
 #logout {
   right: 0;
@@ -100,6 +100,9 @@ h2 {
 }
 
 @media screen and (max-width: 770px) {
+  #startImage{
+    height: 100%;
+  }
   #mobile-carousel {
     width: 100%;
   }
@@ -148,37 +151,8 @@ h2 {
   .about {
     font-size: 1rem;
   }
-}
-
-@media screen and (max-width: 640px) {
-  #logo {
-    display: none;
-  }
-
-
-  #title,
-  .title {
-    width: 100%;
-    font-size: 22pt;
-  }
-  #logout {
-    font-size: 6pt;
-    top: 0;
-  }
-
-  .button-check,
-  #label {
-    font-size: 6pt;
+  .disp-1{
     padding: 0;
   }
-  #addButton {
-    width: 40%;
-  }
-  /* landing page */
-  .about {
-    font-size: 1rem;
-  }
 }
 
-/*     
-   } hide containers platform card when shrunk to phone size */

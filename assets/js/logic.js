@@ -44,11 +44,11 @@ $(document).ready(function() {
       $(div1).attr("id", cardId);
       $(div1).attr("data-num", count);
       var div2 = $("<div>");
-      $(div2).addClass("mb-4 card-div");
+      $(div2).addClass("card-div");
       var div3 = $("<div id=card-1>");
       $(div3).addClass("card rounded shadow-lg");
       var div4 = $("<div id = '" + innerId + "'>");
-      $(div4).addClass("card-body disp-1");
+      $(div4).addClass("card-body disp-1 px-lg-3");
       // $(div4).attr("id", innerId);
       console.log(div4);
       var btnTitle = $("<h5>");
