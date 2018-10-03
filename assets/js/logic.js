@@ -113,6 +113,8 @@ $(document).ready(function() {
 
           if (innerId === "redditInner") {
             reddit();
+          
+          
           } else if (innerId === "stackExchangeInner") {
             var result = response.items;
             $("#" + innerId).empty();
