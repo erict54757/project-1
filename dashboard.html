@@ -27,22 +27,24 @@
                     <span class=" title m-0">
                         <h1 class="display-4 text-center m-0" id="title">OneFeed
 
-                            <p id="lead" class="lead font-weight-bold  text-center mb-1">Your one stop shop for online boards
+                            <p id="lead" class="lead font-weight-bold  text-center mb-1">Your one stop shop for online
+                                boards
                             </p>
 
 
 
 
                             <form id="form" class="form-group-sm  form-group-toolbar form-inline my-0 d-flex justify-content-center">
-                                <input id="addButton" value="" class="form-control-sm  col-4 mx-2" type="search" placeholder="Keyword" aria-label="Search">
+                                <input id="addButton" value="" class="form-control-sm  col-4 mx-2" type="search"
+                                    placeholder="Keyword" aria-label="Search">
                                 <button id="search" class="btn-sm btn-outline-primary my-sm-0" type="submit">Search</button>
                             </form>
                         </h1>
 
                     </span>
 
-                    <button class="btn btn-primary text-primary btn-sm position-absolute mx-1 mt-1 mb-0 p-sm-1" id="logout" onclick="mainApp.logOut()"
-                        style="height: 25%;">LogOut</button>
+                    <button class="btn btn-primary text-primary btn-sm position-absolute mx-1 mt-1 mb-0 p-sm-1" id="logout"
+                        onclick="mainApp.logOut()" style="height: 25%;">LogOut</button>
 
 
 
@@ -65,43 +67,39 @@
 
             <div class="card-body col-12  shadow-lg p-0  btn-toolbar d-flex justify-content-center" role="toolbar" id="button-card">
 
-                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="reddit" 
-                    data-url="http://www.reddit.com/search.json?q=trending&t=all&sort=new&limit=10&apiKey=Ky0R8Y90Gwg6ZJ2K996wd9hH7DM"
+                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="reddit" data-url="http://www.reddit.com/search.json?q=trending&t=all&sort=new&limit=10&apiKey=Ky0R8Y90Gwg6ZJ2K996wd9hH7DM"
                     data-toggle="buttons" data-state="inactive">
                     <label class="btn btn-primary btn-sm shadow-md my-1 p-sm-2 text-primary" id="label">
                         <input type="checkbox" checked autocomplete="off">Reddit
                     </label>
                 </div>
-                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="stackExchange" 
+                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="stackExchange"
                     data-url="http://api.stackexchange.com/2.2/questions?q=javascript&order=desc&sort=activity&site=stackoverflow&key=rjcMcQhVeLRQ0ZhQziUIbQ(("
                     data-toggle="buttons" data-state="inactive">
                     <label class="btn btn-primary btn-sm shadow-md my-1 p-sm-2 text-primary" id="label">
                         <input type="checkbox" checked autocomplete="off"> Stack Exchange
                     </label>
                 </div>
-                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="hackerNews" 
+                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="hackerNews"
                     data-url="https://newsapi.org/v2/top-headlines?sources=hacker-news&sortBy=popularity&keyword=trending&apiKey=8ff761229c714da0ad73442ee4507c1d"
                     data-toggle="buttons" data-state="inactive">
                     <label class="btn btn-primary btn-sm shadow-md my-1 p-sm-2 text-primary" id="label">
                         <input type="checkbox" checked autocomplete="off"> Hacker News
                     </label>
                 </div>
-                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="youTube" 
-                    data-url="https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=trending&type=video&order=relevance&maxResults=10&key=AIzaSyB9iTGjZQ4ys1x9-h2X2i_yoGON2u8YsCo"
+                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="youTube" data-url="https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=trending&type=video&order=relevance&maxResults=10&key=AIzaSyB9iTGjZQ4ys1x9-h2X2i_yoGON2u8YsCo"
                     data-toggle="buttons" data-state="inactive">
                     <label class="btn btn-primary btn-sm shadow-md my-1 p-sm-2 text-primary" id="label">
                         <input type="checkbox" checked autocomplete="off"> YouTube
                     </label>
                 </div>
-                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="nyt" 
-                    data-url="https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=b9f91d369ff59547cd47b931d8cbc56b%3A0%3A74623931&q=new&fq10"
+                <div class="btn-group-toggle  d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="nyt" data-url="https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=b9f91d369ff59547cd47b931d8cbc56b%3A0%3A74623931&q=new&fq10"
                     data-toggle="buttons" data-state="inactive">
                     <label class="btn btn-primary btn-sm shadow-md my-1 p-sm-2 text-primary" id="label">
                         <input type="checkbox" checked autocomplete="off"> New York Times
                     </label>
                 </div>
-                <div class="btn-group-toggle d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="giphy" 
-                    data-url="https://api.giphy.com/v1/gifs/search?q=tech&api_key=dc6zaTOxFJmzC&limit=10"
+                <div class="btn-group-toggle d-sm-inline-flex col-2 px-1 shadow-lg button-check" id="giphy" data-url="https://api.giphy.com/v1/gifs/search?q=tech&api_key=dc6zaTOxFJmzC&limit=10"
                     data-toggle="buttons" data-state="inactive">
                     <label class="btn btn-primary btn-sm shadow-md my-1 p-sm-2 text-primary" id="label">
 
@@ -123,7 +121,7 @@
 
     <!-- this is the mobile version of our feeds that displays on viewport mobile -->
     <div class="container card-dump-container rounded my-1" id="mobile-carousel">
-      <img class=" rounded col-sm-6 offset-sm-3 p-5" id="startImage" src="assets/images/waiting.gif"  alt="" srcset="">
+        <!-- <img class=" rounded col-sm-6 offset-sm-3 p-5" id="startImage" src="assets/images/waiting.gif"  alt="" srcset=""> -->
         <div class="row card-dump ">
             <div id="carouselExampleFade" class="carousel slide carousel-fade">
 
