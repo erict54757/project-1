@@ -21,11 +21,9 @@ $(document).ready(function() {
   // menu button clicks
   //=============================================================================================================
   var count = 0;
-  var idArray = [];
 
   // sidebar button clicks w/api calls
   $(".button-check").on("click", function() {
-    console.log(this.id);
     var cardId = this.id + "Card";
     var innerId = this.id + "Inner";
     if (this.dataset.state === "inactive") {
@@ -39,23 +37,17 @@ $(document).ready(function() {
       var div1 = $("<div>");
       $(div1).addClass("carousel-item active");
       $(div1).attr("id", cardId);
-      $(div1).attr("data-num", count);
       var div2 = $("<div>");
       $(div2).addClass("mb-4 card-div");
       var div3 = $("<div id=card-1>");
       $(div3).addClass("card rounded shadow-lg");
       var div4 = $("<div id = '" + innerId + "'>");
-      $(div4).addClass("card-body disp-1");
-      // $(div4).attr("id", innerId);
-      console.log(div4);
-      var btnTitle = $("<h5>");
-      btnTitle = $(this).text();
-      
-      // $(btnTitle).addClass("card-title text-center");
-      // $(btnTitle).text(this.type)
-      //   var buttonName = $(this).text()
-      //   console.log(buttonName)
-      
+      $(div4).addClass("card-body disp-1 px-lg-3");
+      $(div4).attr("id", innerId);
+      $(div4).attr("data-title", this.id);
+      var btnTitle = $("<h4>");
+      $(btnTitle).addClass("card-title text-center");
+      $(btnTitle).text(this.id);
 
       $(div3).append(div4);
       $(div2).append(div3);
@@ -71,215 +63,224 @@ $(document).ready(function() {
       $.ajax({
         url: queryURL,
         method: "GET"
-      })
+      }).then(function(response) {
         // After the data comes back from the API
-        .then(function(response) {
-          //=========================================================================================================================
-          //display and styling
-          //===========================================================================================================================
 
-          function reddit() {
-            var result = response.data.children;
-            $("#" + innerId).empty();
-            for (var i = 0; i < result.length; i++) {
-              var articleDump = $("<div>");
+        //=========================================================================================================================
+        //display and styling functions
+        //===========================================================================================================================
 
-              var newDiv = $(
-                "<div class='container bg-danger rounded p-3 my-1'>"
-              );
-              var title = $("<h3 class='text-light'>");
+        function reddit() {
+          var result = response.data.children;
+          $("#" + innerId).empty();
+          for (var i = 0; i < result.length; i++) {
+            var articleDump = $("<div class='dump'>");
 
-              var newSmall = $("<small class='text-light'>");
-              var link = $("<a>");
-              var badge = $("<span class='badge badge-dark mr-2'>");
-              var redArticleUrl = result[i].data.url;
+            var newDiv = $("<div class='container bg-dark rounded p-3 my-1'>");
+            var title = $("<h3 class='text-light'>");
 
-              badge.text(i + 1);
-              title.text(result[i].data.title);
-              newSmall.text("URL: " + redArticleUrl);
-              link
-                .html(newSmall)
-                .attr("href", redArticleUrl)
-                .attr("target", "_blank");
+            var newSmall = $("<small class='text-light'>");
+            var link = $("<a>");
+            var badge = $("<span class='badge badge-primary mr-2'>");
+            var redArticleUrl = result[i].data.url;
 
-              title.prepend(badge);
-              newDiv.append(title);
-              newDiv.append(link);
+            badge.text(i + 1);
+            title.text(result[i].data.title);
+            newSmall.text("URL: " + redArticleUrl);
+            link
+              .html(newSmall)
+              .attr("href", redArticleUrl)
+              .attr("target", "_blank");
 
-              articleDump.append(newDiv);
-              $("#" + innerId).append(articleDump);
-            }
+            title.prepend(badge);
+            newDiv.append(title);
+            newDiv.append(link);
+
+            articleDump.append(newDiv);
+            $("#" + innerId).append(articleDump);
           }
+        }
 
-          if (innerId === "redditInner") {
-            reddit();
-          
-          
-          } else if (innerId === "stackExchangeInner") {
-            var result = response.items;
-            $("#" + innerId).empty();
-            for (var i = 0; i < result.length; i++) {
-              var articleDump = $("<div>");
+        function stack() {
+          var result = response.items;
+          $("#" + innerId).empty();
+          for (var i = 0; i < result.length; i++) {
+            var articleDump = $("<div>");
 
-              var newDiv = $(
-                "<div class='container bg-dark rounded p-3 my-1'>"
-              );
-              var title = $("<h3 class='text-light'>");
-              var link = $("<a>");
-              var badge = $("<span class='badge badge-danger mr-2'>");
-              var newSmall = $("<small class='text-light'>");
-              var articleUrl = result[i].link;
+            var newDiv = $("<div class='container bg-dark rounded p-3 my-1'>");
+            var title = $("<h3 class='text-light'>");
+            var link = $("<a>");
+            var badge = $("<span class='badge badge-primary mr-2'>");
+            var newSmall = $("<small class='text-light'>");
+            var articleUrl = result[i].link;
 
-              badge.text(i + 1);
-              title.text(result[i].title);
-              newSmall.text("URL: " + articleUrl);
-              link
-                .html(newSmall)
-                .attr("href", articleUrl)
-                .attr("target", "_blank");
+            badge.text(i + 1);
+            title.text(result[i].title);
+            newSmall.text("URL: " + articleUrl);
+            link
+              .html(newSmall)
+              .attr("href", articleUrl)
+              .attr("target", "_blank");
 
-              title.prepend(badge);
-              newDiv.append(title);
-              newDiv.append(link);
+            title.prepend(badge);
+            newDiv.append(title);
+            newDiv.append(link);
 
-              articleDump.append(newDiv);
-              $("#" + innerId).append(articleDump);
-            }
-          } else if (innerId === "hackerNewsInner") {
-            var result = response.articles;
-            $("#" + innerId).empty();
-            for (var i = 0; i < result.length; i++) {
-              var hackArticleDump = $("<div>");
-
-              var newDiv = $(
-                "<div class='container bg-dark rounded p-3 my-1'>"
-              );
-              var title = $("<h3 class='text-light'>");
-              var description = $("<small class='text-light'>");
-              var newSmall = $("<small class='text-light'>");
-              var link = $("<a>");
-              var brk = $("<br>");
-              var badge = $("<span class='badge badge-danger mr-2'>");
-              var articleUrl = result[i].url;
-
-              badge.text(i + 1);
-              title.text(result[i].title);
-              description.text(result[i].description);
-              newSmall.text(result[i].author);
-              link
-                .html(title)
-                .attr("href", articleUrl)
-                .attr("target", "_blank");
-
-              title.prepend(badge);
-              newDiv.append(link);
-              newDiv.append(description);
-              newDiv.append(brk);
-              newDiv.append(newSmall);
-
-              hackArticleDump.append(newDiv);
-              $("#" + innerId).append(hackArticleDump);
-            }
-          } else if (innerId === "youTubeInner") {
-            var result = response.items;
-            $("#" + innerId).empty();
-            for (var i = 0; i < result.length; i++) {
-              // Creating a div for the videos
-              var videoDiv = $("<div>");
-
-              var divContainer = $(
-                "<div class= 'container bg-dark text-white p-3 pl-2 my-2'>"
-              );
-              var bdg = $("<span class='badge badge-white mr-2'>");
-              var title = result[i].snippet.title;
-              var vidID = result[i].id.videoId;
-
-              var iframe =
-                '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
-                vidID +
-                '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-
-              // Creating a paragraph tag with the result item's title and video
-              bdg.text(i + 1);
-              var p = $("<p>")
-                .text("Title: " + title)
-                .addClass("youtubeTitle");
-              var vidIframe = $("<div>").html(iframe);
-
-              // Appending the paragraph and personImage we created to the "videoDiv" div we created
-              p.prepend(bdg);
-              divContainer.append(p);
-              divContainer.append(vidIframe);
-              videoDiv.append(divContainer);
-              $("#" + innerId).append(videoDiv);
-            }
-          } else if (innerId === "nytInner") {
-            var result = response.response.docs;
-            $("#" + innerId).empty();
-            for (var i = 0; i < result.length; i++) {
-              var articleDump = $("<div>");
-
-              var newDiv = $(
-                "<div class='container bg-danger rounded p-3 my-1'>"
-              );
-              var title = $("<h3 class='text-light'>");
-              var link = $("<a>");
-              var badge = $("<span class='badge badge-dark mr-2'>");
-              var desc = $("<small class='text-light'>");
-              var brk = $("<br>");
-              var newSmall = $("<small class='text-light'>");
-              var articleUrl = result[i].web_url;
-
-              badge.text(i + 1);
-              title.text(result[i].headline.main);
-              link
-                .html(title)
-                .attr("href", articleUrl)
-                .attr("target", "_blank");
-
-              newSmall.text(result[i].byline.original);
-              desc.text("Description: " + result[i].snippet);
-
-              title.prepend(badge);
-              newDiv.append(link);
-              newDiv.append(desc);
-              newDiv.append(brk);
-              newDiv.append(newSmall);
-
-              articleDump.append(newDiv);
-              $("#" + innerId).append(articleDump);
-            }
-          } else if (innerId === "giphyInner") {
-            // Storing an array of results in the results variable
-            var results = response.data;
-            console.log(results);
-            $("#" + innerId).empty();
-            // Looping over every result item
-            for (var i = 0; i < results.length; i++) {
-              // Creating a div for the gif
-              var gifDiv = $("<div>");
-
-              // Storing the result item's rating
-              var rating = results[i].rating;
-
-              // Creating a paragraph tag with the result item's rating
-              var p = $("<p>").text("Rating: " + rating);
-              var personImage = $("<img>");
-
-              // Giving the image tag an src attribute of a proprty pulled off the
-              // result item
-              personImage.attr("src", results[i].images.fixed_height.url);
-
-              // Appending the paragraph and personImage we created to the "gifDiv" div we created
-              gifDiv.append(p);
-              gifDiv.append(personImage);
-
-              // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-              $("#" + innerId).append(gifDiv);
-            }
+            articleDump.append(newDiv);
+            $("#" + innerId).append(articleDump);
           }
-          $(div4).prepend(btnTitle);
-        });
+        }
+
+        function hacker() {
+          var result = response.articles;
+          $("#" + innerId).empty();
+          for (var i = 0; i < result.length; i++) {
+            var hackArticleDump = $("<div>");
+
+            var newDiv = $("<div class='container bg-dark rounded p-3 my-1'>");
+            var title = $("<h3 class='text-light'>");
+            var description = $("<small class='text-light'>");
+            var newSmall = $("<small class='text-light'>");
+            var link = $("<a>");
+            var brk = $("<br>");
+            var badge = $("<span class='badge badge-primary mr-2'>");
+            var articleUrl = result[i].url;
+
+            badge.text(i + 1);
+            title.text(result[i].title);
+            description.text(result[i].description);
+            newSmall.text(result[i].author);
+            link
+              .html(title)
+              .attr("href", articleUrl)
+              .attr("target", "_blank");
+
+            title.prepend(badge);
+            newDiv.append(link);
+            newDiv.append(description);
+            newDiv.append(brk);
+            newDiv.append(newSmall);
+
+            hackArticleDump.append(newDiv);
+            $("#" + innerId).append(hackArticleDump);
+          }
+        }
+
+        function youtube() {
+          var result = response.items;
+          $("#" + innerId).empty();
+          for (var i = 0; i < result.length; i++) {
+            // Creating a div for the videos
+            var videoDiv = $("<div>");
+
+            var divContainer = $(
+              "<div class= 'container bg-dark text-white p-3 pl-2 my-2'>"
+            );
+            var bdg = $("<span class='badge badge-primary mr-2'>");
+            var title = result[i].snippet.title;
+            var vidID = result[i].id.videoId;
+
+            var iframe =
+              '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
+              vidID +
+              '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+
+            // Creating a paragraph tag with the result item's title and video
+            bdg.text(i + 1);
+            var p = $("<h3 class='text-light'>")
+              .text("Title: " + title)
+              .addClass("youtubeTitle");
+            var vidIframe = $("<div>").html(iframe);
+
+            // Appending the paragraph and personImage we created to the "videoDiv" div we created
+            p.prepend(bdg);
+            divContainer.append(p);
+            divContainer.append(vidIframe);
+            videoDiv.append(divContainer);
+            $("#" + innerId).append(videoDiv);
+          }
+        }
+
+        function newYorkTimes() {
+          var result = response.response.docs;
+          $("#" + innerId).empty();
+          for (var i = 0; i < result.length; i++) {
+            var articleDump = $("<div>");
+
+            var newDiv = $("<div class='container bg-dark rounded p-3 my-1'>");
+            var title = $("<h3 class='text-light'>");
+            var link = $("<a>");
+            var badge = $("<span class='badge badge-primary mr-2'>");
+            var desc = $("<small class='text-light'>");
+            var brk = $("<br>");
+            var newSmall = $("<small class='text-light'>");
+            var articleUrl = result[i].web_url;
+
+            badge.text(i + 1);
+            title.text(result[i].headline.main);
+            link
+              .html(title)
+              .attr("href", articleUrl)
+              .attr("target", "_blank");
+
+            newSmall.text(result[i].byline.original);
+            desc.text("Description: " + result[i].snippet);
+
+            title.prepend(badge);
+            newDiv.append(link);
+            newDiv.append(desc);
+            newDiv.append(brk);
+            newDiv.append(newSmall);
+
+            articleDump.append(newDiv);
+            $("#" + innerId).append(articleDump);
+          }
+        }
+
+        function giphyFunc() {
+          var results = response.data;
+          $("#" + innerId).empty();
+          // Looping over every result item
+          for (var i = 0; i < results.length; i++) {
+            // Creating a div for the gif
+            var gifDiv = $("<div class='container bg-dark rounded p-3 my-1'>");
+
+            // Creating a paragraph tag with the result item's rating
+
+            var personImage = $("<img>");
+
+            // Giving the image tag an src attribute of a proprty pulled off the
+            // result item
+            personImage.attr("src", results[i].images.fixed_height.url);
+
+            // Appending the paragraph and personImage we created to the "gifDiv" div we created
+
+            gifDiv.append(personImage);
+
+            // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+            $("#" + innerId).append(gifDiv);
+          }
+        }
+
+        // ====================================================================================================
+        // display fields when button is clicked
+        //=====================================================================================================
+
+        if (innerId === "redditInner") {
+          reddit();
+        } else if (innerId === "stackExchangeInner") {
+          stack();
+        } else if (innerId === "hackerNewsInner") {
+          hacker();
+        } else if (innerId === "youTubeInner") {
+          youtube();
+        } else if (innerId === "nytInner") {
+          newYorkTimes();
+        } else if (innerId === "giphyInner") {
+          giphyFunc();
+        }
+        $(div4).prepend(btnTitle);
+      });
     } else if (this.dataset.state === "active") {
       if ($("#" + cardId).hasClass("active")) {
         $(".div0").carousel("prev");
@@ -294,10 +295,14 @@ $(document).ready(function() {
   //=====================================================================================================================================
   // search functionality
   //===================================================================================================================================
-  $("#search").on("click", function() {
+  $("#search").on("click", function(topicSearch) {
+    topicSearch.preventDefault();
+
     var input = $("#addButton")
       .val()
       .trim();
+    console.log(input);
+
     var youtubeURL =
       "https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=" +
       input +
@@ -323,94 +328,254 @@ $(document).ready(function() {
       input +
       "&api_key=dc6zaTOxFJmzC&limit=10";
 
-    $(".disp-1")
-      .replace()
-      .append(function() {
-        if (id === "redditInner") {
+    //=====================================================================================================
+    // se above lines... empty the div things display in by class (maybe use .replace() instead)
+    // rebuild the innermost div below
+    //===================================================================================================
 
-//=====================================================================================================
-// se above lines... empty the div things display in by class (maybe use .replace() instead)
-// rebuild the innermost div below
-//===================================================================================================
+    // $(".dump")
+    //   .empty()
+    //   .html(function() {
+    if ($(".disp-1").attr("id") === "redditInner") {
+      $.ajax({
+        url: redditURL,
+        method: "GET"
+      }).then(function(response) {
+        var result = response.data.children;
+        $("#redditInner").empty();
+        for (var i = 0; i < result.length; i++) {
+          var articleDump = $("<div>");
 
-          $.ajax({
-            url: redditURL,
-            method: "GET"
-          })
-            // After the data comes back from the API
-            .then(function(response) {
-              var result = response.data.children;
-            $("#" + innerId).empty();
-            for (var i = 0; i < result.length; i++) {
-              var articleDump = $("<div>");
+          var newDiv = $("<div class='container bg-dark rounded p-3 my-1'>");
+          var title = $("<h3 class='text-light'>");
 
-              var newDiv = $(
-                "<div class='container bg-danger rounded p-3 my-1'>"
-              );
-              var title = $("<h3 class='text-light'>");
+          var newSmall = $("<small class='text-light'>");
+          var link = $("<a>");
+          var badge = $("<span class='badge badge-primary mr-2'>");
+          var redArticleUrl = result[i].data.url;
 
-              var newSmall = $("<small class='text-light'>");
-              var link = $("<a>");
-              var badge = $("<span class='badge badge-dark mr-2'>");
-              var redArticleUrl = result[i].data.url;
+          badge.text(i + 1);
+          title.text(result[i].data.title);
+          newSmall.text("URL: " + redArticleUrl);
+          link
+            .html(newSmall)
+            .attr("href", redArticleUrl)
+            .attr("target", "_blank");
 
-              badge.text(i + 1);
-              title.text(result[i].data.title);
-              newSmall.text("URL: " + redArticleUrl);
-              link
-                .html(newSmall)
-                .attr("href", redArticleUrl)
-                .attr("target", "_blank");
+          title.prepend(badge);
+          newDiv.append(title);
+          newDiv.append(link);
 
-              title.prepend(badge);
-              newDiv.append(title);
-              newDiv.append(link);
-
-              articleDump.append(newDiv);
-              $("#" + innerId).append(articleDump);
-            }
-            });
+          articleDump.append(newDiv);
+          $("#redditInner").append(articleDump);
+          var title = $("<h4>");
+          $(title).addClass("card-title text-center");
+          $(title).text(redditInner.dataset.title);
         }
-        if (id === "stackExchangeInner") {
-          $.ajax({
-            url: stackExchangeURL,
-            method: "GET"
-          })
-            // After the data comes back from the API
-            .then(function(response) {});
-        }
-        if (id === "hackerNewsInner") {
-          $.ajax({
-            url: queryURL,
-            method: "GET"
-          })
-            // After the data comes back from the API
-            .then(function(response) {});
-        }
-        if (id === "youTubeInner") {
-          $.ajax({
-            url: queryURL,
-            method: "GET"
-          })
-            // After the data comes back from the API
-            .then(function(response) {});
-        }
-        if (id === "nytInner") {
-          $.ajax({
-            url: queryURL,
-            method: "GET"
-          })
-            // After the data comes back from the API
-            .then(function(response) {});
-        }
-        if (id === "giphyInner") {
-          $.ajax({
-            url: queryURL,
-            method: "GET"
-          })
-            // After the data comes back from the API
-            .then(function(response) {});
-        }
+        $("#redditInner").prepend(title);
       });
+    }
+    else if ($(".disp-1").attr("id") === "stackExchangeInner") {
+      $.ajax({
+        url: stackExchangeURL,
+        method: "GET"
+      }).then(function(response) {
+        var result = response.items;
+        $("#stackExchangeInner").empty();
+        for (var i = 0; i < result.length; i++) {
+          var articleDump = $("<div>");
+
+          var newDiv = $("<div class='container bg-dark rounded p-3 my-1'>");
+          var title = $("<h3 class='text-light'>");
+          var link = $("<a>");
+          var badge = $("<span class='badge badge-primary mr-2'>");
+          var newSmall = $("<small class='text-light'>");
+          var articleUrl = result[i].link;
+
+          badge.text(i + 1);
+          title.text(result[i].title);
+          newSmall.text("URL: " + articleUrl);
+          link
+            .html(newSmall)
+            .attr("href", articleUrl)
+            .attr("target", "_blank");
+
+          title.prepend(badge);
+          newDiv.append(title);
+          newDiv.append(link);
+
+          articleDump.append(newDiv);
+          $("#stackExchangeInner").append(articleDump);
+          var title = $("<h4>");
+          $(title).addClass("card-title text-center");
+          $(title).text(stackExchangeInner.dataset.title);
+        }
+        $("#stackExchangeInner").prepend(title);
+      });
+    }
+    else if ($(".disp-1").attr("id") === "hackerNewsInner") {
+      $.ajax({
+        url: hackerURL,
+        method: "GET"
+      }).then(function(response) {
+        var result = response.articles;
+        $("hackerNewsInner").empty();
+        for (var i = 0; i < result.length; i++) {
+          var hackArticleDump = $("<div>");
+
+          var newDiv = $("<div class='container bg-dark rounded p-3 my-1'>");
+          var title = $("<h3 class='text-light'>");
+          var description = $("<small class='text-light'>");
+          var newSmall = $("<small class='text-light'>");
+          var link = $("<a>");
+          var brk = $("<br>");
+          var badge = $("<span class='badge badge-primary mr-2'>");
+          var articleUrl = result[i].url;
+
+          badge.text(i + 1);
+          title.text(result[i].title);
+          description.text(result[i].description);
+          newSmall.text(result[i].author);
+          link
+            .html(title)
+            .attr("href", articleUrl)
+            .attr("target", "_blank");
+
+          title.prepend(badge);
+          newDiv.append(link);
+          newDiv.append(description);
+          newDiv.append(brk);
+          newDiv.append(newSmall);
+
+          hackArticleDump.append(newDiv);
+          $("hackerNewsInner").append(hackArticleDump);
+          var title = $("<h4>");
+          $(title).addClass("card-title text-center");
+          $(title).text(hackerNewsInner.dataset.title);
+        }
+        $("hackerNewsInner").prepend(title);
+      });
+    }
+    else if ($(".disp-1").attr("id") === "youTubeInner") {
+      $.ajax({
+        url: youtubeURL,
+        method: "GET"
+      }).then(function(response) {
+        var result = response.items;
+        $("youTubeInner").empty();
+        for (var i = 0; i < result.length; i++) {
+          // Creating a div for the videos
+          var videoDiv = $("<div>");
+
+          var divContainer = $(
+            "<div class= 'container bg-dark text-white p-3 pl-2 my-2'>"
+          );
+          var bdg = $("<span class='badge badge-primary mr-2'>");
+          var title = result[i].snippet.title;
+          var vidID = result[i].id.videoId;
+
+          var iframe =
+            '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
+            vidID +
+            '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+
+          // Creating a paragraph tag with the result item's title and video
+          bdg.text(i + 1);
+          var p = $("<h3 class='text-light'>")
+            .text("Title: " + title)
+            .addClass("youtubeTitle");
+          var vidIframe = $("<div>").html(iframe);
+
+          // Appending the paragraph and personImage we created to the "videoDiv" div we created
+          p.prepend(bdg);
+          divContainer.append(p);
+          divContainer.append(vidIframe);
+          videoDiv.append(divContainer);
+          $("youTubeInner").append(videoDiv);
+          var title = $("<h4>");
+          $(title).addClass("card-title text-center");
+          $(title).text(youTubeInner.dataset.title);
+        }
+        $("youTubeInner").prepend(title);
+      });
+    }
+    else if ($(".disp-1").attr("id") === "nytInner") {
+      $.ajax({
+        url: nytURL,
+        method: "GET"
+      }).then(function(response) {
+        var result = response.response.docs;
+        $("nytInner").empty();
+        for (var i = 0; i < result.length; i++) {
+          var articleDump = $("<div>");
+
+          var newDiv = $("<div class='container bg-dark rounded p-3 my-1'>");
+          var title = $("<h3 class='text-light'>");
+          var link = $("<a>");
+          var badge = $("<span class='badge badge-primary mr-2'>");
+          var desc = $("<small class='text-light'>");
+          var brk = $("<br>");
+          var newSmall = $("<small class='text-light'>");
+          var articleUrl = result[i].web_url;
+
+          badge.text(i + 1);
+          title.text(result[i].headline.main);
+          link
+            .html(title)
+            .attr("href", articleUrl)
+            .attr("target", "_blank");
+
+          newSmall.text(result[i].byline.original);
+          desc.text("Description: " + result[i].snippet);
+
+          title.prepend(badge);
+          newDiv.append(link);
+          newDiv.append(desc);
+          newDiv.append(brk);
+          newDiv.append(newSmall);
+
+          articleDump.append(newDiv);
+          $("nytInner").append(articleDump);
+          var title = $("<h4>");
+          $(title).addClass("card-title text-center");
+          $(title).text(nytInner.dataset.title);
+        }
+        $("nytInner").prepend(title);
+      });
+    }
+    else if ($(".disp-1").attr("id") === "giphyInner") {
+      $.ajax({
+        url: giphyURL,
+        method: "GET"
+      }).then(function(response) {
+        var results = response.data;
+        $("giphyInner").empty();
+        // Looping over every result item
+        for (var i = 0; i < results.length; i++) {
+          // Creating a div for the gif
+          var gifDiv = $("<div class='container bg-dark rounded p-3 my-1'>");
+
+          // Creating a paragraph tag with the result item's rating
+
+          var personImage = $("<img>");
+
+          // Giving the image tag an src attribute of a proprty pulled off the
+          // result item
+          personImage.attr("src", results[i].images.fixed_height.url);
+
+          // Appending the paragraph and personImage we created to the "gifDiv" div we created
+
+          gifDiv.append(personImage);
+
+          // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+          $("giphyInner").append(gifDiv);
+          var title = $("<h4>");
+          $(title).addClass("card-title text-center");
+          $(title).text(giphyInner.dataset.title);
+        }
+        $("giphyInner").prepend(title);
+      });
+    }
+    // });
   });
 });
