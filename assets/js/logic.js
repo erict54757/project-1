@@ -278,13 +278,7 @@ $(".carousel").carousel({interval:false});
         $(".div0").carousel("prev");
         $("#" + cardId).remove();
         this.dataset.state = "inactive";
-        
-      } else {
-        $("#" + cardId).remove();
-        this.dataset.state = "inactive";
-        
-
-      }        if ( ( $("#Giphy").data("state")==="inactive") && ($("#Reddit").data("state")==="inactive") &&( $("#Stack-Exchange").data("state")==="inactive") &&( $("#Hacker-News").data("state")==="inactive") &&( $("#YouTube").data("state")==="inactive" )&&( $("#New-York-Times").data("state")==="inactive")&& $(".carousel-item").hasClass("active")===false){
+         if ( ( $("#Giphy").data("state")==="inactive") && ($("#Reddit").data("state")==="inactive") &&( $("#Stack-Exchange").data("state")==="inactive") &&( $("#Hacker-News").data("state")==="inactive") &&( $("#YouTube").data("state")==="inactive" )&&( $("#New-York-Times").data("state")==="inactive")&& $(".carousel-item").hasClass("active")===false){
        $("#startImage").show();
        console.log($("#hackerNews").data("state"));
        console.log($("#Reddit").data("state"));
@@ -293,7 +287,14 @@ $(".carousel").carousel({interval:false});
        console.log($("#youTube").data("state"));
        console.log($("#giphy").data("state"));
        console.log($(".carousel-item"))
-     }  
+     } 
+        
+      } else {
+        $("#" + cardId).remove();
+        this.dataset.state = "inactive";
+        
+
+      }        
          }    
          
    
