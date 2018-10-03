@@ -25,6 +25,11 @@ $(document).ready(function() {
 
   // sidebar button clicks w/api calls
   $(".button-check").on("click", function() {
+
+    
+    // Hides start place holder image
+    $("#startImage").hide();
+
     console.log(this.id);
     var cardId = this.id + "Card";
     var innerId = this.id + "Inner";
@@ -65,6 +70,7 @@ $(document).ready(function() {
       count++;
       // Constructing a URL to search Giphy for the name of the person who said the quote
       this.dataset.state = "active";
+      thatCount++
       var queryURL = this.dataset.url;
 
       // Performing our AJAX GET request
@@ -279,17 +285,36 @@ $(document).ready(function() {
             }
           }
           $(div4).prepend(btnTitle);
-        });
+        });  
+    
     } else if (this.dataset.state === "active") {
+     
+
       if ($("#" + cardId).hasClass("active")) {
         $(".div0").carousel("prev");
         $("#" + cardId).remove();
         this.dataset.state = "inactive";
+        
       } else {
         $("#" + cardId).remove();
         this.dataset.state = "inactive";
-      }
-    }
+        
+
+      }        if ( ( $("#giphy").data("state")==="inactive") && ($("#reddit").data("state")==="inactive") &&( $("#stackExchange").data("state")==="inactive") &&( $("#hackerNews").data("state")==="inactive") &&( $("#youTube").data("state")==="inactive" )&&( $("#nyt").data("state")==="inactive")&& $(".carousel-item").hasClass("active")===false){
+       $("#startImage").show();
+       console.log($("#hackerNews").data("state"));
+       console.log($("#reddit").data("state"));
+       console.log($("#nyt").data("state"));
+       console.log($("#stackExchange").data("state"));
+       console.log($("#youTube").data("state"));
+       console.log($("#giphy").data("state"));
+       console.log($(".carousel-item"))
+     }  
+         }    
+         
+   
+    // } $("#startImage").hide();
+ 
   });
   //=====================================================================================================================================
   // search functionality
