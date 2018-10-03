@@ -1,5 +1,6 @@
 // on doc load
 $(document).ready(function() {
+$(".carousel").carousel({interval:false});
   //=============================================================================================================
   //call to initialize
   var app_firebase = {};
@@ -33,18 +34,14 @@ $(document).ready(function() {
     var cardId = this.id + "Card";
     var innerId = this.id + "Inner";
     if (this.dataset.state === "inactive") {
-      if (count > 1) {
-        $(div1)
-          .removeClass("carousel-item active")
-          .addClass("carousel-item");
-      }
+      
       $(".carousel-item").removeClass("active");
 
       var div1 = $("<div>");
       $(div1).addClass("carousel-item active");
       $(div1).attr("id", cardId);
       $(div1).attr("data-num", count);
-      var div2 = $("<div>");
+      var div2 = $("<div id='bg'>");
       $(div2).addClass("card-div");
       var div3 = $("<div id=card-1>");
       $(div3).addClass("card rounded shadow-lg");
@@ -78,20 +75,20 @@ $(document).ready(function() {
           //display and styling
           //===========================================================================================================================
 
-          function reddit() {
+          function Reddit() {
             var result = response.data.children;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
               var articleDump = $("<div>");
 
               var newDiv = $(
-                "<div class='container bg-danger rounded p-3 my-1'>"
+                "<div class='container bg-dark rounded p-3 my-1'>"
               );
               var title = $("<h3 class='text-light'>");
 
               var newSmall = $("<small class='text-light'>");
               var link = $("<a>");
-              var badge = $("<span class='badge badge-dark mr-2'>");
+              var badge = $("<span class='badge badge-primary mr-2'>");
               var redArticleUrl = result[i].data.url;
 
               badge.text(i + 1);
@@ -112,9 +109,9 @@ $(document).ready(function() {
             }
           }
 
-          if (innerId === "redditInner") {
-            reddit();
-          } else if (innerId === "stackExchangeInner") {
+          if (innerId === "RedditInner") {
+            Reddit();
+          } else if (innerId === "Stack-ExchangeInner") {
             var result = response.items;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -125,7 +122,7 @@ $(document).ready(function() {
               );
               var title = $("<h3 class='text-light'>");
               var link = $("<a>");
-              var badge = $("<span class='badge badge-danger mr-2'>");
+              var badge = $("<span class='badge badge-primary mr-2'>");
               var newSmall = $("<small class='text-light'>");
               var articleUrl = result[i].link;
 
@@ -144,7 +141,7 @@ $(document).ready(function() {
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
             }
-          } else if (that.id === "hackerNews") {
+          } else if (that.id === "Hacker-News") {
             var result = response.articles;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -158,7 +155,7 @@ $(document).ready(function() {
               var newSmall = $("<small class='text-light'>");
               var link = $("<a>");
               var brk = $("<br>");
-              var badge = $("<span class='badge badge-danger mr-2'>");
+              var badge = $("<span class='badge badge-primary mr-2'>");
               var articleUrl = result[i].url;
 
               badge.text(i + 1);
@@ -179,7 +176,7 @@ $(document).ready(function() {
               hackArticleDump.append(newDiv);
               $("#" + innerId).append(hackArticleDump);
             }
-          } else if (that.id === "youTube") {
+          } else if (that.id === "YouTube") {
             var result = response.items;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -189,8 +186,8 @@ $(document).ready(function() {
               var divContainer = $(
                 "<div class= 'container bg-dark text-white rounded p-3 pl-2 my-2'>"
               );
-              var bdg = $("<span class='badge badge-white mr-2'>");
-              // var title = result[i].snippet.title;
+              var bdg = $("<span class='badge badge-primary mr-2'>");
+              
               var vidID = result[i].id.videoId;
 
               var iframe =
@@ -198,32 +195,26 @@ $(document).ready(function() {
                 vidID +
                 '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
 
-              // Creating a paragraph tag with the result item's title and video
-              // bdg.text(i + 1);
-              // var p = $("<p>")
-              //   .text("Title: " + title)
-              //   .addClass("youtubeTitle");
+             
               var vidIframe = $("<div class='col-md-6 offset-md-3 d-flex justify-content-center'>").html(iframe);
 
-              // Appending the paragraph and personImage we created to the "videoDiv" div we created
-              // p.prepend(bdg);
-              // divContainer.append(p);
+              
               divContainer.append(vidIframe);
               videoDiv.append(divContainer);
               $("#" + innerId).append(videoDiv);
             }
-          } else if (that.id === "nyt") {
+          } else if (that.id === "New-York-Times") {
             var result = response.response.docs;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
               var articleDump = $("<div>");
 
               var newDiv = $(
-                "<div class='container bg-danger rounded p-3 my-1'>"
+                "<div class='container bg-dark rounded p-3 my-1'>"
               );
               var title = $("<h3 class='text-light'>");
               var link = $("<a>");
-              var badge = $("<span class='badge badge-dark mr-2'>");
+              var badge = $("<span class='badge badge-primary mr-2'>");
               var desc = $("<small class='text-light'>");
               var brk = $("<br>");
               var newSmall = $("<small class='text-light'>");
@@ -248,7 +239,7 @@ $(document).ready(function() {
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
             }
-          } else if (that.id === "giphy") {
+          } else if (that.id === "Giphy") {
             // Storing an array of results in the results variable
             var results = response.data;
             console.log(results);
@@ -293,10 +284,10 @@ $(document).ready(function() {
         this.dataset.state = "inactive";
         
 
-      }        if ( ( $("#giphy").data("state")==="inactive") && ($("#reddit").data("state")==="inactive") &&( $("#stackExchange").data("state")==="inactive") &&( $("#hackerNews").data("state")==="inactive") &&( $("#youTube").data("state")==="inactive" )&&( $("#nyt").data("state")==="inactive")&& $(".carousel-item").hasClass("active")===false){
+      }        if ( ( $("#Giphy").data("state")==="inactive") && ($("#Reddit").data("state")==="inactive") &&( $("#Stack-Exchange").data("state")==="inactive") &&( $("#Hacker-News").data("state")==="inactive") &&( $("#YouTube").data("state")==="inactive" )&&( $("#New-York-Times").data("state")==="inactive")&& $(".carousel-item").hasClass("active")===false){
        $("#startImage").show();
        console.log($("#hackerNews").data("state"));
-       console.log($("#reddit").data("state"));
+       console.log($("#Reddit").data("state"));
        console.log($("#nyt").data("state"));
        console.log($("#stackExchange").data("state"));
        console.log($("#youTube").data("state"));
@@ -324,8 +315,8 @@ $(document).ready(function() {
       "https://newsapi.org/v2/top-headlines?sources=hacker-news&sortBy=popularity&keyword=" +
       input +
       "&apiKey=8ff761229c714da0ad73442ee4507c1d";
-    var redditURL =
-      "https://www.reddit.com/search.json?q=" +
+    var RedditURL =
+      "https://www.Reddit.com/search.json?q=" +
       input +
       "&t=all&sort=recent&limit=10&apiKey=Ky0R8Y90Gwg6ZJ2K996wd9hH7DM";
     var nytURL =
@@ -344,7 +335,7 @@ $(document).ready(function() {
     $(".disp-1")
       .empty()
       .append(function() {
-        if (id === "redditInner") {
+        if (id === "RedditInner") {
 
 //=====================================================================================================
 // se above lines... empty the div things display in by class (maybe use .replace() instead)
@@ -352,7 +343,7 @@ $(document).ready(function() {
 //===================================================================================================
 
           $.ajax({
-            url: redditURL,
+            url: RedditURL,
             method: "GET"
           })
             // After the data comes back from the API
@@ -363,13 +354,13 @@ $(document).ready(function() {
               var articleDump = $("<div>");
 
               var newDiv = $(
-                "<div class='container bg-danger rounded p-3 my-1'>"
+                "<div class='container bg-dark rounded p-3 my-1'>"
               );
               var title = $("<h3 class='text-light'>");
 
               var newSmall = $("<small class='text-light'>");
               var link = $("<a>");
-              var badge = $("<span class='badge badge-dark mr-2'>");
+              var badge = $("<span class='badge badge-primary mr-2'>");
               var redArticleUrl = result[i].data.url;
 
               badge.text(i + 1);
