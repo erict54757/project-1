@@ -25,6 +25,18 @@ $(document).ready(function() {
 
   // sidebar button clicks w/api calls
   $(".button-check").on("click", function() {
+<<<<<<< HEAD
+    var thatCount= 0;
+    // Hides start place holder image
+    $("#startImage").hide();
+    var that= this
+=======
+
+    
+    // Hides start place holder image
+    $("#startImage").hide();
+
+>>>>>>> 69997babad67061005ac9de20dc105ced7773f7d
     console.log(this.id);
     var cardId = this.id + "Card";
     var innerId = this.id + "Inner";
@@ -41,21 +53,16 @@ $(document).ready(function() {
       $(div1).attr("id", cardId);
       $(div1).attr("data-num", count);
       var div2 = $("<div>");
-      $(div2).addClass("mb-4 card-div");
+      $(div2).addClass("card-div");
       var div3 = $("<div id=card-1>");
       $(div3).addClass("card rounded shadow-lg");
       var div4 = $("<div id = '" + innerId + "'>");
-      $(div4).addClass("card-body disp-1");
+      $(div4).addClass("card-body disp-1 px-lg-3");
       // $(div4).attr("id", innerId);
       console.log(div4);
       var btnTitle = $("<h5>");
-      btnTitle = $(this).text();
-      
-      // $(btnTitle).addClass("card-title text-center");
-      // $(btnTitle).text(this.type)
-      //   var buttonName = $(this).text()
-      //   console.log(buttonName)
-      
+      $(btnTitle).addClass("card-title text-center");
+      $(btnTitle).text(this.id);
 
       $(div3).append(div4);
       $(div2).append(div3);
@@ -65,6 +72,7 @@ $(document).ready(function() {
       count++;
       // Constructing a URL to search Giphy for the name of the person who said the quote
       this.dataset.state = "active";
+      thatCount++
       var queryURL = this.dataset.url;
 
       // Performing our AJAX GET request
@@ -105,6 +113,7 @@ $(document).ready(function() {
               title.prepend(badge);
               newDiv.append(title);
               newDiv.append(link);
+              
 
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
@@ -113,8 +122,6 @@ $(document).ready(function() {
 
           if (innerId === "redditInner") {
             reddit();
-          
-          
           } else if (innerId === "stackExchangeInner") {
             var result = response.items;
             $("#" + innerId).empty();
@@ -145,7 +152,7 @@ $(document).ready(function() {
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
             }
-          } else if (innerId === "hackerNewsInner") {
+          } else if (that.id === "hackerNews") {
             var result = response.articles;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -180,7 +187,7 @@ $(document).ready(function() {
               hackArticleDump.append(newDiv);
               $("#" + innerId).append(hackArticleDump);
             }
-          } else if (innerId === "youTubeInner") {
+          } else if (that.id === "youTube") {
             var result = response.items;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -188,32 +195,32 @@ $(document).ready(function() {
               var videoDiv = $("<div>");
 
               var divContainer = $(
-                "<div class= 'container bg-dark text-white p-3 pl-2 my-2'>"
+                "<div class= 'container bg-dark text-white rounded p-3 pl-2 my-2'>"
               );
               var bdg = $("<span class='badge badge-white mr-2'>");
-              var title = result[i].snippet.title;
+              // var title = result[i].snippet.title;
               var vidID = result[i].id.videoId;
 
               var iframe =
-                '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
+                '<iframe class="rounded col-12" width="560" height="315" src="https://www.youtube.com/embed/' +
                 vidID +
                 '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
 
               // Creating a paragraph tag with the result item's title and video
-              bdg.text(i + 1);
-              var p = $("<p>")
-                .text("Title: " + title)
-                .addClass("youtubeTitle");
-              var vidIframe = $("<div>").html(iframe);
+              // bdg.text(i + 1);
+              // var p = $("<p>")
+              //   .text("Title: " + title)
+              //   .addClass("youtubeTitle");
+              var vidIframe = $("<div class='col-md-6 offset-md-3 d-flex justify-content-center'>").html(iframe);
 
               // Appending the paragraph and personImage we created to the "videoDiv" div we created
-              p.prepend(bdg);
-              divContainer.append(p);
+              // p.prepend(bdg);
+              // divContainer.append(p);
               divContainer.append(vidIframe);
               videoDiv.append(divContainer);
               $("#" + innerId).append(videoDiv);
             }
-          } else if (innerId === "nytInner") {
+          } else if (that.id === "nyt") {
             var result = response.response.docs;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -249,7 +256,7 @@ $(document).ready(function() {
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
             }
-          } else if (innerId === "giphyInner") {
+          } else if (that.id === "giphy") {
             // Storing an array of results in the results variable
             var results = response.data;
             console.log(results);
@@ -257,14 +264,14 @@ $(document).ready(function() {
             // Looping over every result item
             for (var i = 0; i < results.length; i++) {
               // Creating a div for the gif
-              var gifDiv = $("<div>");
+              var gifDiv = $("<div col-12>");
 
               // Storing the result item's rating
               var rating = results[i].rating;
 
               // Creating a paragraph tag with the result item's rating
-              var p = $("<p>").text("Rating: " + rating);
-              var personImage = $("<img>");
+              var p = $("<p class='col-12 d-flex justify-content-center'>").text("Rating: " + rating);
+              var personImage = $("<img class='col-sm-8 offset-sm-2'>");
 
               // Giving the image tag an src attribute of a proprty pulled off the
               // result item
@@ -279,17 +286,36 @@ $(document).ready(function() {
             }
           }
           $(div4).prepend(btnTitle);
-        });
+        });  
+    
     } else if (this.dataset.state === "active") {
+     
+
       if ($("#" + cardId).hasClass("active")) {
         $(".div0").carousel("prev");
         $("#" + cardId).remove();
         this.dataset.state = "inactive";
+        
       } else {
         $("#" + cardId).remove();
         this.dataset.state = "inactive";
-      }
-    }
+        
+
+      }        if ( ( $("#giphy").data("state")==="inactive") && ($("#reddit").data("state")==="inactive") &&( $("#stackExchange").data("state")==="inactive") &&( $("#hackerNews").data("state")==="inactive") &&( $("#youTube").data("state")==="inactive" )&&( $("#nyt").data("state")==="inactive")&& $(".carousel-item").hasClass("active")===false){
+       $("#startImage").show();
+       console.log($("#hackerNews").data("state"));
+       console.log($("#reddit").data("state"));
+       console.log($("#nyt").data("state"));
+       console.log($("#stackExchange").data("state"));
+       console.log($("#youTube").data("state"));
+       console.log($("#giphy").data("state"));
+       console.log($(".carousel-item"))
+     }  
+         }    
+         
+   
+    // } $("#startImage").hide();
+ 
   });
   //=====================================================================================================================================
   // search functionality
@@ -324,7 +350,7 @@ $(document).ready(function() {
       "&api_key=dc6zaTOxFJmzC&limit=10";
 
     $(".disp-1")
-      .replace()
+      .empty()
       .append(function() {
         if (id === "redditInner") {
 
