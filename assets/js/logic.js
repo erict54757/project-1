@@ -1,9 +1,9 @@
 // on doc load
-$(document).ready(function() {
+$(document).ready(function () {
   //=============================================================================================================
   //call to initialize
   var app_firebase = {};
-  (function() {
+  (function () {
     // Initialize Firebase
     var config = {
       apiKey: "AIzaSyCzV3uup5hMyfXqML9oOb81r_dLQcUHlNk",
@@ -21,13 +21,10 @@ $(document).ready(function() {
   // menu button clicks
   //=============================================================================================================
   var count = 0;
-  var idArray = [];
+
 
   // sidebar button clicks w/api calls
-  $(".button-check").on("click", function() {
-    // Hides start place holder image
-    $("#startImage").hide();
-    var that= this
+  $(".button-check").on("click", function () {
     console.log(this.id);
     var cardId = this.id + "Card";
     var innerId = this.id + "Inner";
@@ -51,7 +48,7 @@ $(document).ready(function() {
       $(div4).addClass("card-body disp-1 px-lg-3");
       // $(div4).attr("id", innerId);
       console.log(div4);
-      var btnTitle = $("<h5>");
+      var btnTitle = $("<h4>");
       $(btnTitle).addClass("card-title text-center");
       $(btnTitle).text(this.id);
 
@@ -61,7 +58,7 @@ $(document).ready(function() {
       $(".div0").prepend(div1);
 
       count++;
-      // Constructing a URL to search Giphy for the name of the person who said the quote
+
       this.dataset.state = "active";
       var queryURL = this.dataset.url;
 
@@ -69,27 +66,28 @@ $(document).ready(function() {
       $.ajax({
         url: queryURL,
         method: "GET"
-      })
+      }).then(function (response) {
         // After the data comes back from the API
-        .then(function(response) {
+        
           //=========================================================================================================================
-          //display and styling
+          //display and styling functions
           //===========================================================================================================================
 
           function reddit() {
+            
             var result = response.data.children;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
-              var articleDump = $("<div>");
+              var articleDump = $("<div class='dump'>");
 
               var newDiv = $(
-                "<div class='container bg-danger rounded p-3 my-1'>"
+                "<div class='container bg-dark rounded p-3 my-1'>"
               );
               var title = $("<h3 class='text-light'>");
 
               var newSmall = $("<small class='text-light'>");
               var link = $("<a>");
-              var badge = $("<span class='badge badge-dark mr-2'>");
+              var badge = $("<span class='badge badge-primary mr-2'>");
               var redArticleUrl = result[i].data.url;
 
               badge.text(i + 1);
@@ -103,16 +101,13 @@ $(document).ready(function() {
               title.prepend(badge);
               newDiv.append(title);
               newDiv.append(link);
-              
 
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
             }
           }
 
-          if (innerId === "redditInner") {
-            reddit();
-          } else if (innerId === "stackExchangeInner") {
+          function stack() {
             var result = response.items;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -123,7 +118,7 @@ $(document).ready(function() {
               );
               var title = $("<h3 class='text-light'>");
               var link = $("<a>");
-              var badge = $("<span class='badge badge-danger mr-2'>");
+              var badge = $("<span class='badge badge-primary mr-2'>");
               var newSmall = $("<small class='text-light'>");
               var articleUrl = result[i].link;
 
@@ -142,7 +137,9 @@ $(document).ready(function() {
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
             }
-          } else if (that.id === "hackerNews") {
+          }
+
+          function hacker() {
             var result = response.articles;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -156,7 +153,7 @@ $(document).ready(function() {
               var newSmall = $("<small class='text-light'>");
               var link = $("<a>");
               var brk = $("<br>");
-              var badge = $("<span class='badge badge-danger mr-2'>");
+              var badge = $("<span class='badge badge-primary mr-2'>");
               var articleUrl = result[i].url;
 
               badge.text(i + 1);
@@ -177,7 +174,9 @@ $(document).ready(function() {
               hackArticleDump.append(newDiv);
               $("#" + innerId).append(hackArticleDump);
             }
-          } else if (that.id === "youTube") {
+          }
+
+          function youtube() {
             var result = response.items;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -185,43 +184,45 @@ $(document).ready(function() {
               var videoDiv = $("<div>");
 
               var divContainer = $(
-                "<div class= 'container bg-dark text-white rounded p-3 pl-2 my-2'>"
+                "<div class= 'container bg-dark text-white p-3 pl-2 my-2'>"
               );
-              var bdg = $("<span class='badge badge-white mr-2'>");
-              // var title = result[i].snippet.title;
+              var bdg = $("<span class='badge badge-primary mr-2'>");
+              var title = result[i].snippet.title;
               var vidID = result[i].id.videoId;
 
               var iframe =
-                '<iframe class="rounded col-12" width="560" height="315" src="https://www.youtube.com/embed/' +
+                '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
                 vidID +
                 '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
 
               // Creating a paragraph tag with the result item's title and video
-              // bdg.text(i + 1);
-              // var p = $("<p>")
-              //   .text("Title: " + title)
-              //   .addClass("youtubeTitle");
-              var vidIframe = $("<div class='col-md-6 offset-md-3 d-flex justify-content-center'>").html(iframe);
+              bdg.text(i + 1);
+              var p = $("<h3 class='text-light'>")
+                .text("Title: " + title)
+                .addClass("youtubeTitle");
+              var vidIframe = $("<div>").html(iframe);
 
               // Appending the paragraph and personImage we created to the "videoDiv" div we created
-              // p.prepend(bdg);
-              // divContainer.append(p);
+              p.prepend(bdg);
+              divContainer.append(p);
               divContainer.append(vidIframe);
               videoDiv.append(divContainer);
               $("#" + innerId).append(videoDiv);
             }
-          } else if (that.id === "nyt") {
+          }
+
+          function newYorkTimes() {
             var result = response.response.docs;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
               var articleDump = $("<div>");
 
               var newDiv = $(
-                "<div class='container bg-danger rounded p-3 my-1'>"
+                "<div class='container bg-dark rounded p-3 my-1'>"
               );
               var title = $("<h3 class='text-light'>");
               var link = $("<a>");
-              var badge = $("<span class='badge badge-dark mr-2'>");
+              var badge = $("<span class='badge badge-primary mr-2'>");
               var desc = $("<small class='text-light'>");
               var brk = $("<br>");
               var newSmall = $("<small class='text-light'>");
@@ -246,37 +247,57 @@ $(document).ready(function() {
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
             }
-          } else if (that.id === "giphy") {
-            // Storing an array of results in the results variable
+          }
+
+          function giphyFunc() {
+
             var results = response.data;
-            console.log(results);
             $("#" + innerId).empty();
             // Looping over every result item
             for (var i = 0; i < results.length; i++) {
               // Creating a div for the gif
-              var gifDiv = $("<div col-12>");
-
-              // Storing the result item's rating
-              var rating = results[i].rating;
+              var gifDiv = $("<div class='container bg-dark rounded p-3 my-1'>");
 
               // Creating a paragraph tag with the result item's rating
-              var p = $("<p class='col-12 d-flex justify-content-center'>").text("Rating: " + rating);
-              var personImage = $("<img class='col-sm-8 offset-sm-2'>");
+
+              var personImage = $("<img>");
 
               // Giving the image tag an src attribute of a proprty pulled off the
               // result item
               personImage.attr("src", results[i].images.fixed_height.url);
 
               // Appending the paragraph and personImage we created to the "gifDiv" div we created
-              gifDiv.append(p);
+
               gifDiv.append(personImage);
 
               // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
               $("#" + innerId).append(gifDiv);
             }
           }
+
+          // ==============================================================
+          // display fields when button is clicked
+          if (innerId === "redditInner") {
+            reddit();
+
+          } else if (innerId === "stackExchangeInner") {
+            stack();
+
+          } else if (innerId === "hackerNewsInner") {
+            hacker();
+
+          } else if (innerId === "youTubeInner") {
+            youtube();
+
+          } else if (innerId === "nytInner") {
+            newYorkTimes();
+
+          } else if (innerId === "giphyInner") {
+            giphyFunc();
+          }
           $(div4).prepend(btnTitle);
         });
+
     } else if (this.dataset.state === "active") {
       if ($("#" + cardId).hasClass("active")) {
         $(".div0").carousel("prev");
@@ -291,10 +312,12 @@ $(document).ready(function() {
   //=====================================================================================================================================
   // search functionality
   //===================================================================================================================================
-  $("#search").on("click", function() {
-    var input = $("#addButton")
-      .val()
-      .trim();
+  $("#search").on("click", function (topicSearch) {
+    topicSearch.preventDefault();
+    
+    var input = $("#addButton").val().trim();
+    console.log(input);
+    
     var youtubeURL =
       "https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=" +
       input +
@@ -320,35 +343,47 @@ $(document).ready(function() {
       input +
       "&api_key=dc6zaTOxFJmzC&limit=10";
 
-    $(".disp-1")
-      .empty()
-      .append(function() {
-        if (id === "redditInner") {
-
-//=====================================================================================================
-// se above lines... empty the div things display in by class (maybe use .replace() instead)
-// rebuild the innermost div below
-//===================================================================================================
+  //=====================================================================================================
+  // se above lines... empty the div things display in by class (maybe use .replace() instead)
+  // rebuild the innermost div below
+  //===================================================================================================
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    $(".dump").empty().append(function () {
+      
+      
+      if (innerId === "redditInner") {
 
           $.ajax({
             url: redditURL,
             method: "GET"
-          })
+          }).then(function (response) {
             // After the data comes back from the API
-            .then(function(response) {
-              var result = response.data.children;
+            var result = response.data.children;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
-              var articleDump = $("<div>");
+              var articleDump = $("<div class='dump'>");
 
               var newDiv = $(
-                "<div class='container bg-danger rounded p-3 my-1'>"
+                "<div class='container bg-dark rounded p-3 my-1'>"
               );
               var title = $("<h3 class='text-light'>");
 
               var newSmall = $("<small class='text-light'>");
               var link = $("<a>");
-              var badge = $("<span class='badge badge-dark mr-2'>");
+              var badge = $("<span class='badge badge-primary mr-2'>");
               var redArticleUrl = result[i].data.url;
 
               badge.text(i + 1);
@@ -364,50 +399,64 @@ $(document).ready(function() {
               newDiv.append(link);
 
               articleDump.append(newDiv);
+              console.log(articleDump);
               $("#" + innerId).append(articleDump);
+              console.log(innerId);
             }
+          
+
             });
         }
-        if (id === "stackExchangeInner") {
+        if (innerId === "stackExchangeInner") {
           $.ajax({
             url: stackExchangeURL,
             method: "GET"
-          })
+          }).then(function (response) {
             // After the data comes back from the API
-            .then(function(response) {});
+
+            });
         }
-        if (id === "hackerNewsInner") {
+        if (innerId === "hackerNewsInner") {
           $.ajax({
             url: queryURL,
             method: "GET"
-          })
+          }).then(function (response) {
             // After the data comes back from the API
-            .then(function(response) {});
+
+
+            });
         }
-        if (id === "youTubeInner") {
+        if (innerId === "youTubeInner") {
           $.ajax({
             url: queryURL,
             method: "GET"
-          })
+          }).then(function (response) {
             // After the data comes back from the API
-            .then(function(response) {});
+
+
+            });
         }
-        if (id === "nytInner") {
+        if (innerId === "nytInner") {
           $.ajax({
             url: queryURL,
             method: "GET"
-          })
+          }).then(function (response) {
             // After the data comes back from the API
-            .then(function(response) {});
+
+
+            });
         }
-        if (id === "giphyInner") {
+        if (innerId === "giphyInner") {
           $.ajax({
             url: queryURL,
             method: "GET"
-          })
+          }).then(function (response) {
             // After the data comes back from the API
-            .then(function(response) {});
+
+
+            });
         }
       });
   });
+
 });
