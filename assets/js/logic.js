@@ -25,10 +25,18 @@ $(document).ready(function() {
 
   // sidebar button clicks w/api calls
   $(".button-check").on("click", function() {
+<<<<<<< HEAD
     var thatCount= 0;
     // Hides start place holder image
     $("#startImage").hide();
     var that= this
+=======
+
+    
+    // Hides start place holder image
+    $("#startImage").hide();
+
+>>>>>>> 69997babad67061005ac9de20dc105ced7773f7d
     console.log(this.id);
     var cardId = this.id + "Card";
     var innerId = this.id + "Inner";
