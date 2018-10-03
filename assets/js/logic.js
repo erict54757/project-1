@@ -254,7 +254,7 @@ $(".carousel").carousel({interval:false});
 
               // Creating a paragraph tag with the result item's rating
               var p = $("<p class='col-12 d-flex justify-content-center'>").text("Rating: " + rating);
-              var personImage = $("<img class='col-sm-8 offset-sm-2'>");
+              var personImage = $("<img class='col-sm-6 offset-sm-3 rounded'>");
 
               // Giving the image tag an src attribute of a proprty pulled off the
               // result item
