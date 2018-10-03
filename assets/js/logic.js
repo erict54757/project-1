@@ -1,6 +1,6 @@
 // on doc load
 $(document).ready(function() {
-$(".carousel").carousel({interval:false});
+
   //=============================================================================================================
   //call to initialize
   var app_firebase = {};
@@ -23,7 +23,7 @@ $(".carousel").carousel({interval:false});
   //=============================================================================================================
   var count = 0;
   var idArray = [];
-
+$(".carousel").carousel({interval:false});
   // sidebar button clicks w/api calls
   $(".button-check").on("click", function() {
     var thatCount= 0;
@@ -41,7 +41,7 @@ $(".carousel").carousel({interval:false});
       $(div1).addClass("carousel-item active");
       $(div1).attr("id", cardId);
       $(div1).attr("data-num", count);
-      var div2 = $("<div id='bg'>");
+      var div2 = $("<div>");
       $(div2).addClass("card-div");
       var div3 = $("<div id=card-1>");
       $(div3).addClass("card rounded shadow-lg");
