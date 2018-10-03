@@ -1,17 +1,37 @@
 /* dashboard page */
-body{ background-image: radial-gradient(circle, #000000, #3b3b3b, #777777, #b9b9b9, #ffffff);
+/* body {
+  background-image: radial-gradient(
+    circle,
+    #000000,
+    #3b3b3b,
+    #777777,
+    #b9b9b9,
+    #ffffff
+  );
   background-position-y: center;
   /* background-image: linear-gradient(to top, #000000, #3b3b3b, #777777, #b9b9b9, #ffffff); */
-}
-#mobile-carousel{
-  
-  
+} */
+#mobile-carousel {
   height: 100%;
   /* background-image: radial-gradient(circle, #000000, #3b3b3b, #777777, #b9b9b9, #ffffff); */
-  background-image: radial-gradient(circle, #ffffff, #b9b9b9, #777777, #3b3b3b, #000000);
-  background-image: radial-gradient(circle, #ffffff, #d2d2d2, #a6a6a6, #7c7c7c, #555555);
+  background-image: radial-gradient(
+    circle,
+    #ffffff,
+    #b9b9b9,
+    #777777,
+    #3b3b3b,
+    #000000
+  );
+  background-image: radial-gradient(
+    circle,
+    #ffffff,
+    #d2d2d2,
+    #a6a6a6,
+    #7c7c7c,
+    #555555
+  );
 }
-#startImage{
+#startImage {
   height: 480px;
 }
 #logout {
@@ -100,7 +120,7 @@ h2 {
 }
 
 @media screen and (max-width: 770px) {
-  #startImage{
+  #startImage {
     height: 100%;
   }
   #mobile-carousel {
@@ -151,8 +171,7 @@ h2 {
   .about {
     font-size: 1rem;
   }
-  .disp-1{
+  .disp-1 {
     padding: 0;
   }
 }
-
