@@ -49,8 +49,13 @@ $(document).ready(function() {
       // $(div4).attr("id", innerId);
       console.log(div4);
       var btnTitle = $("<h5>");
-      $(btnTitle).addClass("card-title text-center");
-      $(btnTitle).text(this.id);
+      btnTitle = $(this).text();
+      
+      // $(btnTitle).addClass("card-title text-center");
+      // $(btnTitle).text(this.type)
+      //   var buttonName = $(this).text()
+      //   console.log(buttonName)
+      
 
       $(div3).append(div4);
       $(div2).append(div3);
@@ -317,7 +322,7 @@ $(document).ready(function() {
       "&api_key=dc6zaTOxFJmzC&limit=10";
 
     $(".disp-1")
-      .empty()
+      .replace()
       .append(function() {
         if (id === "redditInner") {
 
