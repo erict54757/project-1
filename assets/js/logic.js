@@ -295,6 +295,8 @@ $(document).ready(function() {
   });
   //=====================================================================================================================================
   // search functionality
+  // change urls to array
+  //instead of if statements just run code for each variable of
   //===================================================================================================================================
   $("#search").on("click", function(topicSearch) {
     topicSearch.preventDefault();
@@ -334,9 +336,6 @@ $(document).ready(function() {
     // rebuild the innermost div below
     //===================================================================================================
 
-    // $(".dump")
-    //   .empty()
-    //   .html(function() {
     if ($(".disp-1").attr("id") === "redditInner") {
       $.ajax({
         url: redditURL,
@@ -572,6 +571,5 @@ $(document).ready(function() {
         $("giphyInner").prepend(title);
       });
     }
-    // });
   });
 });
