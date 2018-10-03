@@ -25,10 +25,11 @@ $(document).ready(function() {
 
   // sidebar button clicks w/api calls
   $(".button-check").on("click", function() {
-    var thatCount= 0;
+
+    
     // Hides start place holder image
     $("#startImage").hide();
-    var that= this
+
     console.log(this.id);
     var cardId = this.id + "Card";
     var innerId = this.id + "Inner";
@@ -45,16 +46,21 @@ $(document).ready(function() {
       $(div1).attr("id", cardId);
       $(div1).attr("data-num", count);
       var div2 = $("<div>");
-      $(div2).addClass("card-div");
+      $(div2).addClass("mb-4 card-div");
       var div3 = $("<div id=card-1>");
       $(div3).addClass("card rounded shadow-lg");
       var div4 = $("<div id = '" + innerId + "'>");
-      $(div4).addClass("card-body disp-1 px-lg-3");
+      $(div4).addClass("card-body disp-1");
       // $(div4).attr("id", innerId);
       console.log(div4);
       var btnTitle = $("<h5>");
-      $(btnTitle).addClass("card-title text-center");
-      $(btnTitle).text(this.id);
+      btnTitle = $(this).text();
+      
+      // $(btnTitle).addClass("card-title text-center");
+      // $(btnTitle).text(this.type)
+      //   var buttonName = $(this).text()
+      //   console.log(buttonName)
+      
 
       $(div3).append(div4);
       $(div2).append(div3);
@@ -105,7 +111,6 @@ $(document).ready(function() {
               title.prepend(badge);
               newDiv.append(title);
               newDiv.append(link);
-              
 
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
@@ -114,6 +119,8 @@ $(document).ready(function() {
 
           if (innerId === "redditInner") {
             reddit();
+          
+          
           } else if (innerId === "stackExchangeInner") {
             var result = response.items;
             $("#" + innerId).empty();
@@ -144,7 +151,7 @@ $(document).ready(function() {
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
             }
-          } else if (that.id === "hackerNews") {
+          } else if (innerId === "hackerNewsInner") {
             var result = response.articles;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -179,7 +186,7 @@ $(document).ready(function() {
               hackArticleDump.append(newDiv);
               $("#" + innerId).append(hackArticleDump);
             }
-          } else if (that.id === "youTube") {
+          } else if (innerId === "youTubeInner") {
             var result = response.items;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -187,32 +194,32 @@ $(document).ready(function() {
               var videoDiv = $("<div>");
 
               var divContainer = $(
-                "<div class= 'container bg-dark text-white rounded p-3 pl-2 my-2'>"
+                "<div class= 'container bg-dark text-white p-3 pl-2 my-2'>"
               );
               var bdg = $("<span class='badge badge-white mr-2'>");
-              // var title = result[i].snippet.title;
+              var title = result[i].snippet.title;
               var vidID = result[i].id.videoId;
 
               var iframe =
-                '<iframe class="rounded col-12" width="560" height="315" src="https://www.youtube.com/embed/' +
+                '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
                 vidID +
                 '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
 
               // Creating a paragraph tag with the result item's title and video
-              // bdg.text(i + 1);
-              // var p = $("<p>")
-              //   .text("Title: " + title)
-              //   .addClass("youtubeTitle");
-              var vidIframe = $("<div class='col-md-6 offset-md-3 d-flex justify-content-center'>").html(iframe);
+              bdg.text(i + 1);
+              var p = $("<p>")
+                .text("Title: " + title)
+                .addClass("youtubeTitle");
+              var vidIframe = $("<div>").html(iframe);
 
               // Appending the paragraph and personImage we created to the "videoDiv" div we created
-              // p.prepend(bdg);
-              // divContainer.append(p);
+              p.prepend(bdg);
+              divContainer.append(p);
               divContainer.append(vidIframe);
               videoDiv.append(divContainer);
               $("#" + innerId).append(videoDiv);
             }
-          } else if (that.id === "nyt") {
+          } else if (innerId === "nytInner") {
             var result = response.response.docs;
             $("#" + innerId).empty();
             for (var i = 0; i < result.length; i++) {
@@ -248,7 +255,7 @@ $(document).ready(function() {
               articleDump.append(newDiv);
               $("#" + innerId).append(articleDump);
             }
-          } else if (that.id === "giphy") {
+          } else if (innerId === "giphyInner") {
             // Storing an array of results in the results variable
             var results = response.data;
             console.log(results);
@@ -256,14 +263,14 @@ $(document).ready(function() {
             // Looping over every result item
             for (var i = 0; i < results.length; i++) {
               // Creating a div for the gif
-              var gifDiv = $("<div col-12>");
+              var gifDiv = $("<div>");
 
               // Storing the result item's rating
               var rating = results[i].rating;
 
               // Creating a paragraph tag with the result item's rating
-              var p = $("<p class='col-12 d-flex justify-content-center'>").text("Rating: " + rating);
-              var personImage = $("<img class='col-sm-8 offset-sm-2'>");
+              var p = $("<p>").text("Rating: " + rating);
+              var personImage = $("<img>");
 
               // Giving the image tag an src attribute of a proprty pulled off the
               // result item
@@ -342,7 +349,7 @@ $(document).ready(function() {
       "&api_key=dc6zaTOxFJmzC&limit=10";
 
     $(".disp-1")
-      .empty()
+      .replace()
       .append(function() {
         if (id === "redditInner") {
 
