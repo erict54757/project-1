@@ -286,6 +286,7 @@ $(document).ready(function() {
         $(".div0").carousel("prev");
         $("#" + cardId).remove();
         this.dataset.state = "inactive";
+        
       } else {
         $("#" + cardId).remove();
         this.dataset.state = "inactive";
@@ -374,8 +375,7 @@ $(document).ready(function() {
         }
         $("#redditInner").prepend(title);
       });
-    }
-    else if ($(".disp-1").attr("id") === "stackExchangeInner") {
+    } else if ($(".disp-1").attr("id") === "stackExchangeInner") {
       $.ajax({
         url: stackExchangeURL,
         method: "GET"
@@ -412,8 +412,7 @@ $(document).ready(function() {
         }
         $("#stackExchangeInner").prepend(title);
       });
-    }
-    else if ($(".disp-1").attr("id") === "hackerNewsInner") {
+    } else if ($(".disp-1").attr("id") === "hackerNewsInner") {
       $.ajax({
         url: hackerURL,
         method: "GET"
@@ -455,8 +454,7 @@ $(document).ready(function() {
         }
         $("hackerNewsInner").prepend(title);
       });
-    }
-    else if ($(".disp-1").attr("id") === "youTubeInner") {
+    } else if ($(".disp-1").attr("id") === "youTubeInner") {
       $.ajax({
         url: youtubeURL,
         method: "GET"
@@ -498,8 +496,7 @@ $(document).ready(function() {
         }
         $("youTubeInner").prepend(title);
       });
-    }
-    else if ($(".disp-1").attr("id") === "nytInner") {
+    } else if ($(".disp-1").attr("id") === "nytInner") {
       $.ajax({
         url: nytURL,
         method: "GET"
@@ -542,8 +539,7 @@ $(document).ready(function() {
         }
         $("nytInner").prepend(title);
       });
-    }
-    else if ($(".disp-1").attr("id") === "giphyInner") {
+    } else if ($(".disp-1").attr("id") === "giphyInner") {
       $.ajax({
         url: giphyURL,
         method: "GET"
